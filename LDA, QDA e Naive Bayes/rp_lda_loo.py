@@ -17,18 +17,17 @@ def zscore(X):
 
 X = zscore(X)
 
-def qda(X_train, Y_train, X_test):
+def lda(X_train, Y_train, X_test):
     y = list()
     mu = list()
-    cov = list()
+    cov = numpy.cov(X_train, rowvar=False)
     for class_ in sorted(list(set(Y_train))):
         idx = numpy.where(Y_train == class_)[0]
         mu.append(numpy.mean(X_train[idx], axis=0))
-        cov.append(numpy.cov(X_train[idx], rowvar=False))
     for x in X_test:
         p = list()
         for j in range(len(mu)):
-            p.append(numpy.log(numpy.linalg.det(cov[j])) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) - 2*numpy.log(1/3))
+            p.append(numpy.log(numpy.linalg.det(cov)) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov)), x - mu[j]) - 2*numpy.log(1/3))
         y_ = numpy.argmin(p)
         y.append(y_)
     return numpy.array(y)
@@ -44,7 +43,7 @@ for train_index, test_index in cross_val.split(X,Y):
     X_train, X_test = X[train_index], X[test_index]
     Y_train, Y_test = Y[train_index], Y[test_index]
 
-    y = qda(X_train, Y_train, X_test)
+    y = lda(X_train, Y_train, X_test)
 
     success += sum(y == Y_test)
 
