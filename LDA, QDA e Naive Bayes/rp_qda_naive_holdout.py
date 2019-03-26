@@ -1,5 +1,5 @@
 import numpy
-from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import StratifiedShuffleSplit
 
 samples = list()
 with open('iris_log.dat') as iris:
@@ -17,25 +17,25 @@ def zscore(X):
 
 X = zscore(X)
 
-def nbayes(X_train, Y_train, X_test):
+def qda_naive(X_train, Y_train, X_test):
     y = list()
     mu = list()
-    var = numpy.diag(numpy.var(X_train, axis=0))
+    cov = list()
     for class_ in sorted(list(set(Y_train))):
         idx = numpy.where(Y_train == class_)[0]
         mu.append(numpy.mean(X_train[idx], axis=0))
+        cov.append(numpy.diag(numpy.var(X_train[idx], axis=0)))
     for x in X_test:
         p = list()
         for j in range(len(mu)):
-            p.append(numpy.log(numpy.linalg.det(var)) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(var)), x - mu[j]) - 2*numpy.log(1/3))
+            p.append(numpy.log(numpy.linalg.det(cov[j])) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) - 2*numpy.log(1/3))
         y_ = numpy.argmin(p)
         y.append(y_)
     return numpy.array(y)
 
-cross_val = LeaveOneOut()
+cross_val = StratifiedShuffleSplit(n_splits=20, test_size=0.3)
 cross_val.get_n_splits(X)
 
-total = len(X)
 success = 0.0
 
 for train_index, test_index in cross_val.split(X,Y):
@@ -43,9 +43,9 @@ for train_index, test_index in cross_val.split(X,Y):
     X_train, X_test = X[train_index], X[test_index]
     Y_train, Y_test = Y[train_index], Y[test_index]
 
-    y = nbayes(X_train, Y_train, X_test)
+    y = qda_naive(X_train, Y_train, X_test)
 
-    success += sum(y == Y_test)
+    success += sum(y == Y_test)/len(Y_test)
 
-result = 100*(success/total)
+result = (100*(success/20))
 print('%.2f %%' % (result))

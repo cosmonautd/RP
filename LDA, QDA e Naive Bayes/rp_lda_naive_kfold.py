@@ -17,7 +17,7 @@ def zscore(X):
 
 X = zscore(X)
 
-def nbayes(X_train, Y_train, X_test):
+def lda_naive(X_train, Y_train, X_test):
     y = list()
     mu = list()
     var = numpy.diag(numpy.var(X_train, axis=0))
@@ -43,7 +43,7 @@ for train_index, test_index in cross_val.split(X,Y):
     X_train, X_test = X[train_index], X[test_index]
     Y_train, Y_test = Y[train_index], Y[test_index]
 
-    y = nbayes(X_train, Y_train, X_test)
+    y = lda_naive(X_train, Y_train, X_test)
 
     success += sum(y == Y_test)
 
