@@ -28,8 +28,10 @@ def qda(X_train, Y_train, X_test):
     for x in X_test:
         p = list()
         for j in range(len(mu)):
-            p.append(numpy.log(numpy.linalg.det(cov[j])) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) - 2*numpy.log(1/3))
-        y_ = numpy.argmin(p)
+            # p.append(numpy.log(numpy.linalg.det(cov[j])) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) - 2*numpy.log(1/3))
+            p.append( (1/numpy.sqrt(2*numpy.pi*numpy.linalg.det(cov[j]))) * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) ) * (1/3))
+        # y_ = numpy.argmin(p)
+        y_ = numpy.argmax(p)
         y.append(y_)
     return numpy.array(y)
 

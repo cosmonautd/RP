@@ -20,15 +20,17 @@ X = zscore(X)
 def lda_naive(X_train, Y_train, X_test):
     y = list()
     mu = list()
-    var = numpy.diag(numpy.var(X_train, axis=0))
+    cov = numpy.diag(numpy.var(X_train, axis=0))
     for class_ in sorted(list(set(Y_train))):
         idx = numpy.where(Y_train == class_)[0]
         mu.append(numpy.mean(X_train[idx], axis=0))
     for x in X_test:
         p = list()
         for j in range(len(mu)):
-            p.append(numpy.log(numpy.linalg.det(var)) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(var)), x - mu[j]) - 2*numpy.log(1/3))
-        y_ = numpy.argmin(p)
+            # p.append(numpy.log(numpy.linalg.det(cov)) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov)), x - mu[j]) - 2*numpy.log(1/3))
+            p.append( (1/numpy.sqrt(2*numpy.pi*numpy.linalg.det(cov))) * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov)), x - mu[j]) ) * (1/3))
+        # y_ = numpy.argmin(p)
+        y_ = numpy.argmax(p)
         y.append(y_)
     return numpy.array(y)
 
