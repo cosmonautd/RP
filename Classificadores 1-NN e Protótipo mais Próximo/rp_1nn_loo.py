@@ -1,3 +1,4 @@
+import time
 import numpy
 from sklearn.model_selection import LeaveOneOut
 
@@ -17,11 +18,15 @@ def zscore(X):
 
 X = zscore(X)
 
+t_train = [0]
+t_classification = list()
 def one_nn(X_train, Y_train, X_test):
     y = list()
     for x in X_test:
+        checkpoint = time.time()
         dist = numpy.linalg.norm(X_train - x, axis=1)
         y_ = Y_train[numpy.argmin(dist)]
+        t_classification.append(time.time() - checkpoint)
         y.append(y_)
     return numpy.array(y)
 
@@ -42,3 +47,6 @@ for train_index, test_index in cross_val.split(X,Y):
 
 result = 100*(success/total)
 print('%.2f %%' % (result))
+
+print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))

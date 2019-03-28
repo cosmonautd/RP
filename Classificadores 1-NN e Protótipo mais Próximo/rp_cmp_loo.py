@@ -1,5 +1,6 @@
+import time
 import numpy
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import LeaveOneOut
 
 samples = list()
 with open('iris_log.dat') as iris:
@@ -17,21 +18,29 @@ def zscore(X):
 
 X = zscore(X)
 
-def pmp(X_train, Y_train, X_test):
+t_train = list()
+t_classification = list()
+def cmp(X_train, Y_train, X_test):
     y = list()
     centroids = list()
+    checkpoint = time.time()
     for class_ in sorted(list(set(Y_train))):
         idx = numpy.where(Y_train == class_)[0]
         centroids.append(numpy.mean(X_train[idx], axis=0))
+    t_train.append(time.time() - checkpoint)
+    centroids = numpy.array(centroids)
     for x in X_test:
+        checkpoint = time.time()
         dist = numpy.linalg.norm(centroids - x, axis=1)
         y_ = numpy.argmin(dist)
+        t_classification.append(time.time() - checkpoint)
         y.append(y_)
     return numpy.array(y)
 
-cross_val = StratifiedShuffleSplit(n_splits=20, test_size=0.3)
+cross_val = LeaveOneOut()
 cross_val.get_n_splits(X)
 
+total = len(X)
 success = 0.0
 
 for train_index, test_index in cross_val.split(X,Y):
@@ -39,9 +48,12 @@ for train_index, test_index in cross_val.split(X,Y):
     X_train, X_test = X[train_index], X[test_index]
     Y_train, Y_test = Y[train_index], Y[test_index]
 
-    y = pmp(X_train, Y_train, X_test)
+    y = cmp(X_train, Y_train, X_test)
 
-    success += sum(y == Y_test)/len(Y_test)
+    success += sum(y == Y_test)
 
-result = 100*(success/20)
+result = 100*(success/total)
 print('%.2f %%' % (result))
+
+print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))
