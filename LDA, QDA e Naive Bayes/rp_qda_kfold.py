@@ -58,17 +58,16 @@ def qda(X_train, Y_train, X_test):
     for x in X_test:
         # Início da contagem de tempo
         checkpoint = time.time()
-        # Lista de probabilidades condicionais, uma para cada classe
+        # Lista de valores discriminantes, uma para cada classe
         p = list()
         # Percorre as classes presentes no problema usando como referência
         # a lista de centroides já calculados
         for j in range(len(mu)):
-            # Calcula e armazena a probabilidade associada à classe j
-            p.append( (1/numpy.sqrt(2*numpy.pi*cov_det[j]))
-            * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, cov_inv[j]), x - mu[j]) )
-            * (1/3))
-        # Cálculo do índice da classe que maximiza a probabilidade condicional
-        y_ = numpy.argmax(p)
+            # Calcula e armazena o resultado do discriminante associado à classe j
+            p.append(numpy.log(cov_det[j]) +
+                     numpy.dot(numpy.dot((x - mu[j]).T, cov_inv[j]), x - mu[j]))
+        # Cálculo do índice da classe que minimiza o valor do discriminante
+        y_ = numpy.argmin(p)
         # Fim da contagem de tempo e armazenamento do tempo transcorrido
         t_classification.append(time.time() - checkpoint)
         # O resultado da classificação é armazenado

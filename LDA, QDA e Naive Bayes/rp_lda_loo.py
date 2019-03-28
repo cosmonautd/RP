@@ -37,8 +37,6 @@ def lda(X_train, Y_train, X_test):
     checkpoint = time.time()
     # Cálculo da matriz de covariâncias sobre todas as amostras de treinamento
     cov = numpy.cov(X_train, rowvar=False)
-    # Cálculo do determinante da matriz de covariâncias
-    cov_det = numpy.linalg.det(cov)
     # Cálculo da inversa da matriz de covariâncias
     cov_inv = numpy.linalg.inv(cov)
     # Percorre o conjunto de classes na base de dados
@@ -54,17 +52,15 @@ def lda(X_train, Y_train, X_test):
     for x in X_test:
         # Início da contagem de tempo
         checkpoint = time.time()
-        # Lista de probabilidades condicionais, uma para cada classe
+        # Lista de valores discriminantes, uma para cada classe
         p = list()
         # Percorre as classes presentes no problema usando como referência
         # a lista de centroides já calculados
         for j in range(len(mu)):
-            # Calcula e armazena a probabilidade associada à classe j
-            p.append( (1/numpy.sqrt(2*numpy.pi*cov_det))
-            * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, cov_inv), x - mu[j]) ) 
-            * (1/3))
-        # Cálculo do índice da classe que maximiza a probabilidade condicional
-        y_ = numpy.argmax(p)
+            # Calcula e armazena o resultado do discriminante associado à classe j
+            p.append(numpy.dot(numpy.dot((x - mu[j]).T, cov_inv), x - mu[j]))
+        # Cálculo do índice da classe que minimiza o valor do discriminante
+        y_ = numpy.argmin(p)
         # Fim da contagem de tempo e armazenamento do tempo transcorrido
         t_classification.append(time.time() - checkpoint)
         # O resultado da classificação é armazenado
