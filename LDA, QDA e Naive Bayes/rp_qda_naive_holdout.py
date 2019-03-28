@@ -1,3 +1,4 @@
+import time
 import numpy
 from sklearn.model_selection import StratifiedShuffleSplit
 
@@ -17,21 +18,30 @@ def zscore(X):
 
 X = zscore(X)
 
+t_train = list()
+t_classification = list()
 def qda_naive(X_train, Y_train, X_test):
     y = list()
     mu = list()
-    cov = list()
+    cov_det = list()
+    cov_inv = list()
+    checkpoint = time.time()
     for class_ in sorted(list(set(Y_train))):
         idx = numpy.where(Y_train == class_)[0]
         mu.append(numpy.mean(X_train[idx], axis=0))
-        cov.append(numpy.diag(numpy.var(X_train[idx], axis=0)))
+        cov = numpy.diag(numpy.var(X_train[idx], axis=0))
+        cov_det.append(numpy.linalg.det(cov))
+        cov_inv.append(numpy.linalg.inv(cov))
+    t_train.append(time.time() - checkpoint)
     for x in X_test:
+        checkpoint = time.time()
         p = list()
         for j in range(len(mu)):
             # p.append(numpy.log(numpy.linalg.det(cov[j])) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) - 2*numpy.log(1/3))
-            p.append( (1/numpy.sqrt(2*numpy.pi*numpy.linalg.det(cov[j]))) * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov[j])), x - mu[j]) ) * (1/3))
+            p.append( (1/numpy.sqrt(2*numpy.pi*cov_det[j])) * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, cov_inv[j]), x - mu[j]) ) * (1/3))
         # y_ = numpy.argmin(p)
         y_ = numpy.argmax(p)
+        t_classification.append(time.time() - checkpoint)
         y.append(y_)
     return numpy.array(y)
 
@@ -51,3 +61,6 @@ for train_index, test_index in cross_val.split(X,Y):
 
 result = (100*(success/20))
 print('%.2f %%' % (result))
+
+print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))
