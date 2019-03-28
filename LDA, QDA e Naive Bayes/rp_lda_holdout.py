@@ -26,26 +26,48 @@ X = zscore(X)
 t_train = list()
 t_classification = list()
 
+# Função LDA para treinar e classificar as amostras em X_test
+# usando X_train e Y_train como amostras conhecidas
 def lda(X_train, Y_train, X_test):
+    # Lista de classes de saída
     y = list()
+    # Lista de centroides, um para cada classe
     mu = list()
+    # Início da contagem de tempo de treinamento
     checkpoint = time.time()
+    # Cálculo da matriz de covariâncias sobre todas as amostras de treinamento
     cov = numpy.cov(X_train, rowvar=False)
+    # Cálculo do determinante da matriz de covariâncias
     cov_det = numpy.linalg.det(cov)
+    # Cálculo da inversa da matriz de covariâncias
     cov_inv = numpy.linalg.inv(cov)
+    # Percorre o conjunto de classes na base de dados
     for class_ in sorted(list(set(Y_train))):
+        # Separa os índices do elementos cuja classe atual
         idx = numpy.where(Y_train == class_)[0]
+        # Calcula e armazena o centroide da classe atual
         mu.append(numpy.mean(X_train[idx], axis=0))
+    # Fim da contagem de tempo de treinamento e armazenamento 
+    # do tempo transcorrido
     t_train.append(time.time() - checkpoint)
+    # Percorre o conjunto de elementos a serem classificados
     for x in X_test:
+        # Início da contagem de tempo
         checkpoint = time.time()
+        # Lista de probabilidades condicionais, uma para cada classe
         p = list()
+        # Percorre as classes presentes no problema usando como referência
+        # a lista de centroides já calculados
         for j in range(len(mu)):
-            # p.append(numpy.log(numpy.linalg.det(cov)) + numpy.dot(numpy.dot((x - mu[j]).T, numpy.linalg.inv(cov)), x - mu[j]) - 2*numpy.log(1/3))
-            p.append( (1/numpy.sqrt(2*numpy.pi*cov_det)) * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, cov_inv), x - mu[j]) ) * (1/3))
-        # y_ = numpy.argmin(p)
+            # Calcula e armazena a probabilidade associada à classe j
+            p.append( (1/numpy.sqrt(2*numpy.pi*cov_det))
+            * numpy.exp( -0.5*numpy.dot(numpy.dot((x - mu[j]).T, cov_inv), x - mu[j]) ) 
+            * (1/3))
+        # Cálculo do índice da classe que maximiza a probabilidade condicional
         y_ = numpy.argmax(p)
+        # Fim da contagem de tempo e armazenamento do tempo transcorrido
         t_classification.append(time.time() - checkpoint)
+        # O resultado da classificação é armazenado
         y.append(y_)
     return numpy.array(y)
 
@@ -68,7 +90,7 @@ for train_index, test_index in cross_val.split(X,Y):
     Y_train, Y_test = Y[train_index], Y[test_index]
 
     # Realiza a inferência
-    y = one_nn(X_train, Y_train, X_test)
+    y = lda(X_train, Y_train, X_test)
 
     # Realiza a contagem de sucessos
     success += sum(y == Y_test)/len(Y_test)

@@ -1,6 +1,6 @@
 import time
 import numpy
-from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import StratifiedKFold
 
 # Leitura da base de dados Iris
 samples = list()
