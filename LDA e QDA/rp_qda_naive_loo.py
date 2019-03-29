@@ -105,5 +105,5 @@ result = 100*(success/total)
 print('%.2f %%' % (result))
 
 # Cálculo e empressão dos tempos médios de processamento
-print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
-print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))
+print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))

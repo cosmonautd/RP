@@ -26,49 +26,36 @@ X = zscore(X)
 t_train = list()
 t_classification = list()
 
-# Função QDA ingênuo para treinar e classificar as amostras em X_test
-# usando X_train e Y_train como amostras conhecidas
-def qda_naive(X_train, Y_train, X_test):
+# Função Centroide mais Próximo para classificar as amostras 
+# em X_test usando X_train e Y_train como amostras conhecidas
+def cmp_(X_train, Y_train, X_test):
     # Lista de classes de saída
     y = list()
-    # Lista de centroides, um para cada classe
-    mu = list()
-    # Lista de determinates das matrizes de covariâncias, um para cada classe
-    cov_det = list()
-    # Lista de inversas das matrizes de covariâncias, uma para cada classe
-    cov_inv = list()
+    # Lista de centroides
+    centroids = list()
     # Início da contagem de tempo de treinamento
     checkpoint = time.time()
     # Percorre o conjunto de classes na base de dados
     for class_ in sorted(list(set(Y_train))):
         # Separa os índices do elementos cuja classe atual
         idx = numpy.where(Y_train == class_)[0]
-        # Calcula e armazena o centroide da classe atual
-        mu.append(numpy.mean(X_train[idx], axis=0))
-        # Cálculo das variâncias sobre as amostras da classe atual
-        # e organização das variâncias nas diagonais de uma matriz quadrada
-        cov = numpy.diag(numpy.var(X_train[idx], axis=0))
-        # Calcula e armazena o determinante da matriz de covariâncias da classe atual
-        cov_det.append(numpy.linalg.det(cov))
-        # Calcula e armazena a inversa da matriz de covariâncias da classe atual
-        cov_inv.append(numpy.linalg.inv(cov))
+        # Calcula o centroide da classe atual
+        centroids.append(numpy.mean(X_train[idx], axis=0))
     # Fim da contagem de tempo de treinamento e armazenamento 
     # do tempo transcorrido
     t_train.append(time.time() - checkpoint)
+    # Conversão da lista de centroides em um array numpy
+    centroids = numpy.array(centroids)
     # Percorre o conjunto de elementos a serem classificados
     for x in X_test:
         # Início da contagem de tempo
         checkpoint = time.time()
-        # Lista de valores discriminantes, uma para cada classe
-        p = list()
-        # Percorre as classes presentes no problema usando como referência
-        # a lista de centroides já calculados
-        for j in range(len(mu)):
-            # Calcula e armazena o resultado do discriminante associado à classe j
-            p.append(numpy.log(cov_det[j]) +
-                     numpy.dot(numpy.dot((x - mu[j]).T, cov_inv[j]), x - mu[j]))
-        # Cálculo do índice da classe que minimiza o valor do discriminante
-        y_ = numpy.argmin(p)
+        # Cálculo das distâncias entre a amostra x
+        # e todos os centroides das classes
+        dist = numpy.linalg.norm(centroids - x, axis=1)
+        # Cálculo do índice da mínima distância calculada
+        # e posterior obtenção da classe referente a esse índice
+        y_ = numpy.argmin(dist)
         # Fim da contagem de tempo e armazenamento do tempo transcorrido
         t_classification.append(time.time() - checkpoint)
         # O resultado da classificação é armazenado
@@ -95,7 +82,7 @@ for train_index, test_index in cross_val.split(X,Y):
     Y_train, Y_test = Y[train_index], Y[test_index]
 
     # Realiza a inferência
-    y = qda_naive(X_train, Y_train, X_test)
+    y = cmp_(X_train, Y_train, X_test)
 
     # Realiza a contagem de sucessos
     success += sum(y == Y_test)
@@ -105,5 +92,5 @@ result = 100*(success/total)
 print('%.2f %%' % (result))
 
 # Cálculo e empressão dos tempos médios de processamento
-print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
-print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))
+print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))

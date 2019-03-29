@@ -1,6 +1,6 @@
 import time
 import numpy
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import StratifiedShuffleSplit
 
 # Leitura da base de dados Iris
 samples = list()
@@ -48,17 +48,16 @@ def one_nn(X_train, Y_train, X_test):
     return numpy.array(y)
 
 # Instanciação do objeto responsável pela divisão de conjuntos de
-# treino e teste de acordo com a metodologia K-Fold com K = 10
-cross_val = StratifiedKFold(10)
+# treino e teste de acordo com a metodologia Holdout com 20 repetições,
+# porcentagem de teste de 30% e treino de 70%
+cross_val = StratifiedShuffleSplit(n_splits=20, test_size=0.3)
 cross_val.get_n_splits(X)
 
-# Total de amostras
-total = len(X)
 # Variável para contagem da taxa de sucesso
 success = 0.0
 
 # Percorre as divisões de conjuntos de treino e teste
-# 10-Fold
+# Holdout
 for train_index, test_index in cross_val.split(X,Y):
 
     # Assinala os conjuntos de treino e teste de acordo
@@ -70,12 +69,12 @@ for train_index, test_index in cross_val.split(X,Y):
     y = one_nn(X_train, Y_train, X_test)
 
     # Realiza a contagem de sucessos
-    success += sum(y == Y_test)
+    success += sum(y == Y_test)/len(Y_test)
 
 # Cálculo e impressão do resultado da validação
-result = 100*(success/total)
+result = 100*(success/20)
 print('%.2f %%' % (result))
 
 # Cálculo e empressão dos tempos médios de processamento
-print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
-print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))
+print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))

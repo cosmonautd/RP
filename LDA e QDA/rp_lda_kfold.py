@@ -1,6 +1,6 @@
 import time
 import numpy
-from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import StratifiedKFold
 
 # Leitura da base de dados Iris
 samples = list()
@@ -26,19 +26,18 @@ X = zscore(X)
 t_train = list()
 t_classification = list()
 
-# Função LDA ingênuo para treinar e classificar as amostras em X_test
+# Função LDA para treinar e classificar as amostras em X_test
 # usando X_train e Y_train como amostras conhecidas
-def lda_naive(X_train, Y_train, X_test):
+def lda(X_train, Y_train, X_test):
     # Lista de classes de saída
     y = list()
     # Lista de centroides, um para cada classe
     mu = list()
     # Início da contagem de tempo de treinamento
     checkpoint = time.time()
-    # Cálculo das variâncias sobre todas as amostras de treinamento
-    # e organização das variâncias nas diagonais de uma matriz quadrada
-    cov = numpy.diag(numpy.var(X_train, axis=0))
-    # Cálculo da inversa da matriz de variâncias
+    # Cálculo da matriz de covariâncias sobre todas as amostras de treinamento
+    cov = numpy.cov(X_train, rowvar=False)
+    # Cálculo da inversa da matriz de covariâncias
     cov_inv = numpy.linalg.inv(cov)
     # Percorre o conjunto de classes na base de dados
     for class_ in sorted(list(set(Y_train))):
@@ -69,8 +68,8 @@ def lda_naive(X_train, Y_train, X_test):
     return numpy.array(y)
 
 # Instanciação do objeto responsável pela divisão de conjuntos de
-# treino e teste de acordo com a metodologia Leave One Out
-cross_val = LeaveOneOut()
+# treino e teste de acordo com a metodologia K-Fold com K = 10
+cross_val = StratifiedKFold(10)
 cross_val.get_n_splits(X)
 
 # Total de amostras
@@ -79,7 +78,7 @@ total = len(X)
 success = 0.0
 
 # Percorre as divisões de conjuntos de treino e teste
-# Leave One Out
+# 10-Fold
 for train_index, test_index in cross_val.split(X,Y):
 
     # Assinala os conjuntos de treino e teste de acordo
@@ -88,7 +87,7 @@ for train_index, test_index in cross_val.split(X,Y):
     Y_train, Y_test = Y[train_index], Y[test_index]
 
     # Realiza a inferência
-    y = lda_naive(X_train, Y_train, X_test)
+    y = lda(X_train, Y_train, X_test)
 
     # Realiza a contagem de sucessos
     success += sum(y == Y_test)
@@ -98,5 +97,5 @@ result = 100*(success/total)
 print('%.2f %%' % (result))
 
 # Cálculo e empressão dos tempos médios de processamento
-print('Tempo médio de treinamento: %f ms' % (1000*numpy.mean(t_train)))
-print('Tempo médio de classificação: %f ms' % (1000*numpy.mean(t_classification)))
+print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
+print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))
