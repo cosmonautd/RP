@@ -1,7 +1,14 @@
 import sys
 import time
 import numpy
+import argparse
 from sklearn.model_selection import StratifiedKFold
+
+# Leitura dos argumentos de linha de comando
+ap = argparse.ArgumentParser()
+ap.add_argument("--normalize", help="Normalizar os dados (zscore)", action="store_true")
+ap.add_argument("-q", type=int, default=10, help="Número de neurônios da ELM")
+args = ap.parse_args()
 
 # Gerador aleatório com semente fixa para auxiliar na reproducibilidade
 numpy.random.seed(1)
@@ -30,7 +37,7 @@ def sigmoid(x):
     return 1 / (1 + numpy.exp(-x))
 
 # Normalização das amostras apenas se for passado parâmetro -n
-if len(sys.argv) > 1 and sys.argv[1] == '-n':
+if args.normalize:
     X = zscore(X)
 
 # Listas para armazenar tempos de treinamento e classificação
@@ -100,7 +107,7 @@ for train_index, test_index in cross_val.split(X,Y_):
     Y_train, Y_test = Y[train_index], Y_[test_index]
 
     # Realiza a inferência
-    y = elm(X_train, Y_train, X_test, q=10)
+    y = elm(X_train, Y_train, X_test, q=args.q)
 
     # Realiza a contagem de sucessos
     success += sum(y == Y_test)
