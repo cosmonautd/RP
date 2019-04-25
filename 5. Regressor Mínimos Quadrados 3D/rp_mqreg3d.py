@@ -76,6 +76,7 @@ z_grid = numpy.dot(surface, beta).reshape(x_grid.shape)
 # Plot do plano regressor
 ax.plot_surface(x_grid, y_grid, z_grid, color='red', alpha=0.8)
 
+# Configurações finais do plot
 plt.title('Regressão 3D\nR2 = %.6f' % (R2))
 ax.set_xlabel('x')
 ax.set_ylabel('y')
