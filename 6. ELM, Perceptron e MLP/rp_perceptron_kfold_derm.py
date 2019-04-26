@@ -7,7 +7,8 @@ from sklearn.model_selection import StratifiedKFold
 # Leitura dos argumentos de linha de comando
 ap = argparse.ArgumentParser()
 ap.add_argument("--normalize", help="Normalizar os dados (zscore)", action="store_true")
-ap.add_argument("-q", type=int, default=10, help="Número de neurônios da ELM")
+ap.add_argument("-e", type=int, default=20, help="Número de épocas de treinamento")
+ap.add_argument("-a", type=float, default=0.25, help="Taxa de aprendizagem")
 args = ap.parse_args()
 
 # Gerador aleatório com semente fixa para auxiliar na reproducibilidade
@@ -34,10 +35,6 @@ def zscore(X):
     X = X / numpy.std(X, axis=0, ddof=1)
     return X
 
-# Função sigmoide
-def sigmoid(x):
-    return 1 / (1 + numpy.exp(-x))
-
 # Normalização das amostras apenas se for passado parâmetro -n
 if args.normalize:
     X = zscore(X)
@@ -46,45 +43,72 @@ if args.normalize:
 t_train = list()
 t_classification = list()
 
-# Função ELM para classificar as amostras em X_test usando 
+# Função Perceptron para classificar as amostras em X_test usando
 # X_train e Y_train como amostras de treino
-def elm(X_train, Y_train, X_test, q=10):
+def perceptron(X_train, Y_train, X_test, epochs, alpha):
     # Lista de classes de saída
     y = list()
-    # Alteração do padrão dos dados (amostras são posicionadas nas colunas)
-    X_test = X_test.T
-    X_train = X_train.T
-    D = Y_train.T
-    # Cálculo do número p de atributos e número N de amostras
-    p = X_train.shape[0]
-    N = X_train.shape[1]
+    # Configurações iniciais do número de amostras N, número 
+    # de atributos p, número de neurônios q e lista de pesos 
+    # para cada neurônio
+    N = X_train.shape[0]
+    p = X_train.shape[1]
+    q = 6
+    W = list()
     # Início da contagem de tempo de treinamento
     checkpoint = time.time()
-    # Geração da matriz de pesos aleatórios
-    W = numpy.random.randn(q, p+1)
     # Adição do bias à matriz X_train
-    X_train = numpy.concatenate((numpy.ones((1,N)), X_train))
-    # Passagem pela camada oculta e adição de bias a Z
-    Z = sigmoid(numpy.dot(W, X_train))
-    Z = numpy.concatenate((numpy.ones((1,N)), Z))
-    # Cálculo dos pesos entre a camada oculta e camada de saída
-    M = numpy.dot((numpy.dot(D,Z.T)),(numpy.linalg.pinv(numpy.dot(Z,Z.T))))
+    X_train = numpy.concatenate((-numpy.ones((N,1)), X_train), axis=1)
+    # Treinamento de cada neurônio da rede perceptron individualmente
+    for q_ in range(q):
+        # Inicialização dos pesos do neurônio em questão
+        W.append(numpy.zeros((1, p+1)))
+        # Passagem de épocas
+        for epoch in range(epochs):
+            # Iteração pelas amostras de treinamento
+            for i, x in enumerate(X_train):
+                # Cálculo da ativação
+                u_t = numpy.dot(W[q_].flatten(), x)
+                # Cálculo da saída do neurônio
+                y_t = 1 if u_t > 0 else 0
+                # Cálculo do erro
+                # Caso 1: o neurônio não ativa, mas deveria ativar
+                if y_t == 0 and Y_train[i] == q_: e_t = 1
+                # Caso 2: o neurônio ativa, mas não deveria ativar
+                elif y_t == 1 and Y_train[i] != q_: e_t = -1
+                # Caso 3: o neurônio ativa ou não ativa corretamente
+                elif y_t == 0 and Y_train[i] != q_: e_t = 0
+                elif y_t == 1 and Y_train[i] == q_: e_t = 0
+                # Atualização dos pesos do neurônio em questão
+                W[q_] = W[q_] + alpha*e_t*x
     # Fim da contagem de tempo de treinamento e armazenamento 
     # do tempo transcorrido
     t_train.append(time.time() - checkpoint)
     # Obtenção do número de amostras a serem classificadas
-    N_ = X_test.shape[1]
+    N_ = X_test.shape[0]
     # Início da contagem de tempo
     checkpoint = time.time()
-    # Adição do bias
-    X_test = numpy.concatenate((numpy.ones((1,N_)), X_test))
-    # Passagem das amostras de teste pela camada oculta e adição do bias
-    Z_ = sigmoid(numpy.dot(W, X_test))
-    Z_ = numpy.concatenate((numpy.ones((1,N_)), Z_))
-    # Cálculos dos valores da camada de saída
-    D_ = numpy.dot(M, Z_)
-    # Cálculo do índice do neurônio que proporciona a maior ativação na saída
-    y = numpy.argmax(D_, axis=0)
+    # Adição do bias à matriz X_test
+    X_test = numpy.concatenate((-numpy.ones((N_,1)), X_test), axis=1)
+    # Iteração por todas as amostras de teste
+    for i, x in enumerate(X_test):
+        # Saída da rede perceptron para a amostra de teste atual
+        y_ = list()
+        # Iteração pelos neurônios da rede
+        for q_ in range(q):
+            # Cálculo da ativação no neurônio
+            u_t = numpy.dot(W[q_].flatten(), x)
+            # Cálculo da saída do neurônio
+            y_q = 1 if u_t > 0 else 0
+            # Armazenamento da saída do neurônio no array de saída da rede
+            y_.append(y_q)
+        y_ = numpy.array(y_)
+        # Caso apenas um neurônio tenha sido ativado, armazena o índice
+        # do neurônio como a classe da amostra; caso contrário, o índice
+        # -1 é usado como indicação de que a rede não pôde classificar a amostra
+        if numpy.sum(y_) == 1: y.append(numpy.argmax(y_))
+        else: y.append(-1)
+    y = numpy.array(y)
     # Fim da contagem de tempo e armazenamento do tempo transcorrido
     t_classification.append(time.time() - checkpoint)
     return y
@@ -97,7 +121,7 @@ cross_val.get_n_splits(X)
 # Total de amostras
 total = len(X)
 # Matriz de confusão
-conf_matrix = numpy.zeros((6, 6))
+conf_matrix = numpy.zeros((7, 7))
 
 # Percorre as divisões de conjuntos de treino e teste 
 # 5-Fold
@@ -106,10 +130,10 @@ for train_index, test_index in cross_val.split(X,Y_):
     # Assinala os conjuntos de treino e teste de acordo
     # com os índices definidos
     X_train, X_test = X[train_index], X[test_index]
-    Y_train, Y_test = Y[train_index], Y_[test_index]
+    Y_train, Y_test = Y_[train_index], Y_[test_index]
 
     # Realiza a inferência
-    y = elm(X_train, Y_train, X_test, q=args.q)
+    y = perceptron(X_train, Y_train, X_test, epochs=args.e, alpha=args.a)
 
     # Preenche a matriz de confusão
     for i in range(len(y)):
