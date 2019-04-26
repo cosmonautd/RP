@@ -96,8 +96,8 @@ cross_val.get_n_splits(X)
 
 # Total de amostras
 total = len(X)
-# Variável para contagem da taxa de sucesso
-success = 0.0
+# Matriz de confusão
+conf_matrix = numpy.zeros((6, 6))
 
 # Percorre as divisões de conjuntos de treino e teste
 # Leave One Out
@@ -111,8 +111,12 @@ for train_index, test_index in cross_val.split(X,Y_):
     # Realiza a inferência
     y = elm(X_train, Y_train, X_test, q=args.q)
 
-    # Realiza a contagem de sucessos
-    success += sum(y == Y_test)
+    for i in range(len(y)):
+        conf_matrix[y[i], Y_test[i]] += 1
+
+# Cálculo do número de sucessos usando a matriz de confusão
+# Soma dos elementos da diagonal principal
+success = numpy.sum(numpy.diag(conf_matrix))
 
 # Cálculo e impressão do resultado da validação
 result = 100*(success/total)
@@ -121,3 +125,6 @@ print('%.2f %%' % (result))
 # Cálculo e empressão dos tempos médios de processamento
 print('Tempo médio de treinamento: %f us' % (10**6*numpy.mean(t_train)))
 print('Tempo médio de classificação: %f us' % (10**6*numpy.mean(t_classification)))
+
+print('Matriz de confusão:')
+print(conf_matrix)
