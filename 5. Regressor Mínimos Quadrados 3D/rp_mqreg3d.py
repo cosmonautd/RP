@@ -1,9 +1,15 @@
 import numpy
+import argparse
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+# Leitura dos argumentos de linha de comando
+ap = argparse.ArgumentParser()
+ap.add_argument("-k", type=int, default=1, help="Grau do polinômio de regressão")
+args = ap.parse_args()
+
 # Definição das coordenadas (x, y) na matrix X
-X = numpy.array(
+X_ = numpy.array(
     [
         [122, 139],
         [114, 126],
@@ -19,7 +25,7 @@ X = numpy.array(
 )
 
 # Definição das coordenadas z na matriz Z
-Z = numpy.array(
+Z_ = numpy.array(
     [
         [0.115],
         [0.120],
@@ -34,8 +40,15 @@ Z = numpy.array(
     ]
 )
 
-# Adição do termo independente
-X = numpy.concatenate((numpy.ones((len(X), 1)), X), axis=1)
+# Definição do grau do polinômio
+k = args.k
+
+# Produção da matriz X contendo as potências dos valores originais
+# até o grau do polinômio de regressão definido; Z não é alterado
+X = numpy.ones((len(X_), 1))
+Z = Z_
+for i in range(1, k+1):
+    X = numpy.concatenate((X, numpy.power(X_, i)), axis=1)
 
 # Cálculo dos coeficientes do plano regressor
 beta = numpy.dot(numpy.linalg.pinv(numpy.dot(X.T, X)), numpy.dot(X.T, Z))
@@ -68,7 +81,10 @@ x_grid, y_grid = numpy.meshgrid(x, y)
 # Modelagem da superfície (x,y) sobre a qual serão calculados os valores de z
 x_grid_flat = x_grid.reshape((res**2,1))
 y_grid_flat = y_grid.reshape((res**2,1))
-surface = numpy.concatenate((numpy.ones((res**2,1)), x_grid_flat, y_grid_flat), axis=1)
+surface = numpy.ones((res**2,1))
+for i in range(1, k+1):
+    surface = numpy.concatenate(
+        (surface, numpy.power(x_grid_flat, i), numpy.power(y_grid_flat, i)), axis=1)
 
 # Aplicação do modelo regressor sobre a superfície de plot
 z_grid = numpy.dot(surface, beta).reshape(x_grid.shape)
