@@ -40,6 +40,9 @@ Z_ = numpy.array(
     ]
 )
 
+# Número de amostras do dataset
+n = len(X_)
+
 # Definição do grau do polinômio
 k = args.k
 
@@ -53,14 +56,16 @@ for i in range(1, k+1):
 # Cálculo dos coeficientes do plano regressor
 beta = numpy.dot(numpy.linalg.pinv(numpy.dot(X.T, X)), numpy.dot(X.T, Z))
 
-# Variáveis para cálculo do coeficiente de determinação R2
+# Variáveis para cálculo dos coeficientes de determinação R2 e R2aj
 z = numpy.dot(X, beta)
 Z_mean = numpy.mean(Z)
+p = k + 1
 SQe = numpy.sum((Z - z)**2)
 Syy = numpy.sum((Z - Z_mean)**2)
 
-# Coeficiente de determinação R2
+# Coeficientes de determinação R2 e R2aj
 R2 = 1 - SQe/Syy
+R2aj = 1 - ((SQe/(n-p))/(Syy/(n-1)))
 
 # Plot 3D
 fig = plt.figure()
@@ -70,7 +75,7 @@ ax = fig.add_subplot(111, projection='3d')
 ax.scatter(X[:,1].flatten(), X[:,2].flatten(), Z.flatten())
 
 # Plot das previsões do modelo regressor sobre os dados originais
-ax.scatter(X[:,1].flatten(), X[:,2].flatten(), numpy.dot(X, beta).flatten(), c='r')
+# ax.scatter(X[:,1].flatten(), X[:,2].flatten(), numpy.dot(X, beta).flatten(), c='r')
 
 # Configuração para plot do plano regressor, resolução e grade (x,y)
 res = 20
@@ -93,7 +98,7 @@ z_grid = numpy.dot(surface, beta).reshape(x_grid.shape)
 ax.plot_surface(x_grid, y_grid, z_grid, color='red', alpha=0.8)
 
 # Configurações finais do plot
-plt.title('Regressão 3D\nR2 = %.6f' % (R2))
+plt.title('Regressão 3D\nR2 = %.6f\nR2aj = %.6f' % (R2, R2aj))
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('z')
