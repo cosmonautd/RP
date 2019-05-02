@@ -52,8 +52,6 @@ def mlp(X_train, Y_train, X_test, q=10, epochs=1):
     # Cálculo do número p de atributos e número N de amostras
     p = X_train.shape[1]
     N = X_train.shape[0]
-    # Início da contagem de tempo de treinamento
-    checkpoint = time.time()
     # Instanciação de um modelo sequencial
     # Este modelo é uma pilha de camadas de neurônios
     # Sua construção é feita através da adição sequencial de camadas
@@ -65,6 +63,8 @@ def mlp(X_train, Y_train, X_test, q=10, epochs=1):
     # Compilação do modelo
     # Definição do algoritmo de otimização e da função de perda
     model.compile(optimizer='adam', loss='categorical_crossentropy')
+    # Início da contagem de tempo de treinamento
+    checkpoint = time.time()
     # Treinamento
     # Executa o algoritmo de otimização, ajustando os pesos das conexões
     # da rede neural com base nos valores de entrada X_train e saída Y_train, 
