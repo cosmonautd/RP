@@ -33,16 +33,24 @@ def pca(X, c=None):
     eigenvalues, eigenvectors = numpy.linalg.eig(cov)
     # Ordenação decrescente dos autovetores de acordo
     # com os autovalores
-    eig = list(zip(eigenvalues, eigenvectors))
+    eig = list(zip(eigenvalues, eigenvectors.T))
     eig.sort(key=lambda eig: eig[0], reverse=True)
     # Reconstrução da matriz composta de autovetores ordenados
     A = numpy.array([ev[1] for ev in eig[:c]]).T
     # Multiplicação da base original pela matriz de autovetores
-    return X @ A
+    return numpy.dot(X, A)
 
 # Caso o número de componentes passado seja positivo, realiza o PCA
 if args.c > 0:
     X = pca(X, args.c)
+
+# Função de normalização
+def zscore(X):
+    X = X - numpy.mean(X, axis=0)
+    X = X / numpy.std(X, axis=0, ddof=1)
+    return X
+
+X = zscore(X)
 
 # Listas para armazenar tempos de treinamento e classificação
 t_train = list()
