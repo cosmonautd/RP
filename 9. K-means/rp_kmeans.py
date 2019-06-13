@@ -17,6 +17,7 @@ dataset = numpy.array(samples)
 # Preenchimento do vetor de amostras X e suas classes Y
 X = dataset[:,0:len(dataset[0])-3]
 Y = dataset[:,len(dataset[0])-3:]
+# Representação de classes (e.g. [0 1 2])
 Y = numpy.argmax(Y, axis=1)
 
 def kmeans(X, k):
