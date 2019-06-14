@@ -1,16 +1,12 @@
 import time
 import numpy
 import argparse
+import seaborn
+import matplotlib.pyplot as plt
 from sklearn.model_selection import LeaveOneOut
 
-# Semente fixa para auxiliar na reproducibilidade
-numpy.random.seed(1)
-
-# Leitura dos argumentos de linha de comando
-ap = argparse.ArgumentParser()
-ap.add_argument("-c", type=int, default=4, help="Número de componentes do PCA")
-ap.add_argument("-q", type=int, default=10, help="Número de neurônios da ELM")
-args = ap.parse_args()
+# Ajuste de formatação dos valores em arrays numpy
+numpy.set_printoptions(formatter={'float': lambda x: '%5.2f' % x})
 
 # Leitura da base de dados Iris
 samples = list()
@@ -31,6 +27,8 @@ def pca(X, c=None):
     # Caso o valor de c não seja passado, utilizar valor
     # igual ao número original de dimensões
     if c is None: c = X.shape[1]
+    # Caso o número de componentes solicitado seja 0, não realiza PCA
+    if c == 0: return X
     # Subtração da média dos atributos
     X = X - numpy.mean(X, axis=0)
     # Cálculo da matriz de covariâncias
@@ -55,12 +53,6 @@ def zscore(X):
 # Função sigmoide
 def sigmoid(x):
     return 1 / (1 + numpy.exp(-x))
-
-# Caso o número de componentes passado seja positivo, realiza o PCA
-if args.c > 0:
-    X = pca(X, args.c)
-
-# X = zscore(X)
 
 # Listas para armazenar tempos de treinamento e classificação
 t_train = list()
@@ -109,35 +101,44 @@ def elm(X_train, Y_train, X_test, q=10):
     t_classification.append(time.time() - checkpoint)
     return y
 
-# Instanciação do objeto responsável pela divisão de conjuntos de
-# treino e teste de acordo com a metodologia Leave One Out
-cross_val = LeaveOneOut()
-cross_val.get_n_splits(X)
+# Matriz para armazentamento dos resultados
+nlist = [0, 1, 2, 3, 4]
+Qlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+R = numpy.zeros((len(nlist), len(Qlist)))
 
-# Total de amostras
-total = len(X)
-# Variável para contagem da taxa de sucesso
-success = 0.0
+# Iteração pelos valores desejados de número de componentes principais
+for n in nlist:
+    # Iteração pelos valores desejados de número de neurônios na camada oculta
+    for Q in Qlist:
+        # Aplicação do PCA
+        X_pca = pca(X, n)
+        # Instanciação do objeto responsável pela divisão de conjuntos de
+        # treino e teste de acordo com a metodologia Leave One Out
+        cross_val = LeaveOneOut()
+        cross_val.get_n_splits(X_pca)
+        # Total de amostras
+        total = len(X_pca)
+        # Variável para contagem da taxa de sucesso
+        success = 0.0
+        # Percorre as divisões de conjuntos de treino e teste
+        # Leave One Out
+        for train_index, test_index in cross_val.split(X_pca,Y):
+            # Assinala os conjuntos de treino e teste de acordo
+            # com os índices definidos
+            X_train, X_test = X_pca[train_index], X_pca[test_index]
+            Y_train, Y_test = Y[train_index], Y_[test_index]
+            # Realiza a inferência
+            y = elm(X_train, Y_train, X_test, q=Q)
+            # Realiza a contagem de sucessos
+            success += sum(y == Y_test)
+        # Cálculo e impressão do resultado da validação
+        result = 100*(success/total)
+        R[n, Q-1] = result
 
-# Percorre as divisões de conjuntos de treino e teste
-# Leave One Out
-for train_index, test_index in cross_val.split(X,Y):
-
-    # Assinala os conjuntos de treino e teste de acordo
-    # com os índices definidos
-    X_train, X_test = X[train_index], X[test_index]
-    Y_train, Y_test = Y[train_index], Y_[test_index]
-
-    # Realiza a inferência
-    y = elm(X_train, Y_train, X_test, q=args.q)
-
-    # Realiza a contagem de sucessos
-    success += sum(y == Y_test)
-
-# Cálculo e impressão do resultado da validação
-result = 100*(success/total)
-print('%.2f %%' % (result))
-
-# Cálculo e empressão dos tempos médios de processamento
-print('Tempo médio de treinamento: %.0f us' % (10**6*numpy.mean(t_train)))
-print('Tempo médio de classificação: %.0f us' % (10**6*numpy.mean(t_classification)))
+ax = seaborn.heatmap(R, cmap='YlGnBu', annot=True, fmt=".2f", square=True, cbar_kws={"shrink": 0.41})
+ax.set_xlabel('Neurônios na camada oculta (Q)')
+ax.set_ylabel('Componentes principais (n)')
+ax.set_xticklabels(['%d' % (Q) for Q in Qlist])
+ax.set_yticklabels(['%d' % (n) for n in nlist], rotation=0)
+plt.tight_layout()
+plt.show()

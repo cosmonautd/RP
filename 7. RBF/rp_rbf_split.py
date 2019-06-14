@@ -81,7 +81,7 @@ def rbf(X_train, Y_train, X_test, q=10):
     y = numpy.array(y)
     # Cálculo da superfície de separação
     # Criação de uma grade sobre a superfície dos dados
-    x_0 = numpy.arange(-2, 8.5, 0.01)
+    x_0 = numpy.arange(-2, 9.0, 0.01)
     x_1 = numpy.arange(0, 8, 0.01)
     # Iteração sobre os pontos da grade
     boundary = list()
@@ -97,7 +97,8 @@ def rbf(X_train, Y_train, X_test, q=10):
             d = numpy.dot(M, z)
             # Caso a classificação seja incerta, registra os pontos
             # da grade que produziram a incerteza
-            if abs(d) < 0.005:
+            epsilon = 0.2
+            if abs(d) < epsilon:
                 boundary.append([x0, x1])
     boundary = numpy.array(boundary)
     return y, boundary
@@ -119,5 +120,9 @@ print('Acurácia: %.2f %%' % (result))
 plt.scatter(X[:,0], X[:,1], c=Y.T[0], alpha=0.5)
 # Plot da superfície de separação
 plt.scatter(b[:,0], b[:,1], s=1.1, c='red', alpha=0.25)
+# Rótulos dos eixos
+plt.xlabel('x0')
+plt.ylabel('x1')
+# Exibição da figura
 plt.tight_layout()
 plt.show()
