@@ -1,15 +1,20 @@
 import os
 
 # Caminho das imagens e seus rótulos
-X_path = 'dataset/X'
-Y_path = 'dataset/Y'
+root = '.'
+X_path = os.path.join(root, 'dataset/X')
+Y_path = os.path.join(root, 'dataset/Y')
 
 # Criação de diretório para armazenar os pesos treinados
-weights_path = 'weights'
+weights_path = os.path.join(root, 'weights')
 if not os.path.exists(weights_path):
     os.mkdir(weights_path)
 
-import os
+# Criação de diretório para armazenar os gráficos de perda
+losses_path = os.path.join(root, 'losses')
+if not os.path.exists(losses_path):
+    os.mkdir(losses_path)
+
 import cv2
 import logging
 import warnings
@@ -71,14 +76,21 @@ def aerialcnn_model(dims):
     return model
 
 # Função para plot dos gráficos de perda durante o treinamento
-def visualize_training(hist):
+def visualize_training(hist, loo_id):
     # Plot da perda
-    plt.plot(hist.history['loss'])
-    plt.plot(hist.history['val_loss'])
-    plt.title('loss')
-    plt.ylabel('loss')
-    plt.xlabel('epochs')
-    plt.legend(['training', 'validation'], loc='upper right')
+    fig, ax = plt.subplots()
+    ax.set_xlim(-5, 105)
+    ax.set_ylim(0, 3)
+    x0, x1 = ax.get_xlim()
+    y0, y1 = ax.get_ylim()
+    ax.set_aspect((x1-x0)/(y1-y0))
+    ax.plot(hist.history['loss'])
+    ax.plot(hist.history['val_loss'])
+    ax.set_ylabel('Loss')
+    ax.set_xlabel('Epochs')
+    ax.legend(['Training', 'Validation'], loc='upper right')
+    plt.tight_layout()
+    plt.savefig(os.path.join(losses_path, 'loss%02d.pdf' % (loo_id)))
     plt.show()
 
 def show_image(images):
@@ -169,7 +181,7 @@ for train_index, test_index in cross_val.split(X):
                                       validation_steps=4*len(X_val))
     
     # Plot dos gráficos de acurácia e perda
-    visualize_training(history)
+    visualize_training(history, test_index[0]+1)
 
     # Carregamento da melhor combinação de pesos obtida durante o treinamento
     aerialcnn.load_weights(weights_path_loo)

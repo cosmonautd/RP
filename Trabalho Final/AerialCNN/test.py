@@ -40,15 +40,16 @@ Y_path = 'dataset/Y'
 KP_path = 'dataset/kp'
 KN_path = 'dataset/kn'
 
-# Criação de diretório para armazenar os pesos treinados
+# Diretório para armazenar os pesos treinados
 weights_path = 'weights'
-if not os.path.exists(weights_path):
-    os.mkdir(weights_path)
 
-# Criação de diretório para armazenar os pesos treinados
+# Diretório para armazenar os pesos treinados
 paths_path = 'paths'
-if not os.path.exists(paths_path):
-    os.mkdir(paths_path)
+
+# Diretório para as saídas do teste
+output_path__ = 'output'
+if not os.path.exists(output_path__):
+    os.mkdir(output_path__)
 
 # Função para construção da AerialCNN
 def aerialcnn_model(dims):
@@ -77,17 +78,6 @@ def aerialcnn_model(dims):
     optimized_rmsprop = rmsprop(lr=0.001,decay=1e-6)
     model.compile(loss="mean_squared_error", optimizer=optimized_rmsprop)
     return model
-
-# Função para plot dos gráficos de perda durante o treinamento
-def visualize_training(hist):
-    # Plot da perda
-    plt.plot(hist.history['loss'])
-    plt.plot(hist.history['val_loss'])
-    plt.title('loss')
-    plt.ylabel('loss')
-    plt.xlabel('epochs')
-    plt.legend(['training', 'validation'], loc='upper right')
-    plt.show()
 
 def show_image(images):
     n = len(images)
@@ -244,20 +234,40 @@ for train_index, test_index in cross_val.split(X):
     # Carregamento da melhor combinação de pesos obtida durante o treinamento
     aerialcnn.load_weights(weights_path_loo)
 
+    # Calcular perda sobre conjunto de teste
+    print('Test loss: %.4f' % (aerialcnn.evaluate(X_test, Y_test, verbose=0)))
+
     # Teste
     y = aerialcnn.predict(X_test)
     y = np.squeeze(y[0])
-    y = (y - np.min(y))
-    y = y/np.max(y)
-    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(3,3))
-    y = np.array(clahe.apply((255*y).astype(np.uint8)), dtype=np.float32)/255
-    show_image([X[test_index][0], y])
+
+    y__ = np.squeeze(Y_test[0])
+
+    print("MSE 0: %.4f" % (((y - y__)**2).mean(axis=None)))
+
+    # y = (y - np.min(y))
+    # y = y/np.max(y)
+
+    # print("MSE 1: %.4f" % (((y - y__)**2).mean(axis=None)))
+
+    # cv2.imwrite(os.path.join(output_path__, 'tfcn-output-%02d.jpg' % (test_index[0]+1)), 255*y)
+
+    # show_image([X[test_index][0], y__, y])
+    # plt.show()
+
+    # continue
 
     # Histograma
-    image_histogram(y, [0])
+    # show_image([X[test_index][0], y])
+    # image_histogram(y, [0])
 
     # Exibição dos gráficos
     # plt.show()
+
+    # Pós-processamento
+    # clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(3,3))
+    # y = np.array(clahe.apply((255*y).astype(np.uint8)), dtype=np.float32)/255
+    # show_image([X[test_index][0], y])
 
     t_matrix = y
     ground_truth = load_image(os.path.join(Y_path, 'aerial%02d.jpg' % (test_index[0]+1)))
@@ -270,7 +280,6 @@ for train_index, test_index in cross_val.split(X):
     th = th.flatten()
     tv = np.arange(0, 1, 1/100)
     c = np.sum(th*tv)/np.sum(th)
-    # print(c)
 
     router = graphmapx.RouteEstimator(r=8, c=c, grid=grid)
     G = router.tm2graph(t_matrix)
