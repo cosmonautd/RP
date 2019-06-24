@@ -36,10 +36,10 @@ warnings.filterwarnings('ignore')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Caminho das imagens e seus rótulos
-X_path = 'dataset/X'
-Y_path = 'dataset/Y'
-KP_path = 'dataset/kp'
-KN_path = 'dataset/kn'
+X_path = 'dataset/extra/X'
+Y_path = 'dataset/extra/Y'
+KP_path = 'dataset/extra/kp'
+KN_path = 'dataset/extra/kn'
 
 # Diretório para armazenar os pesos treinados
 weights_path = 'weights'
@@ -133,26 +133,6 @@ def grid_list(image, r):
         else:
             raise ValueError("r probably larger than image dimensions")
 
-def score(path, ground_truth, r):
-    score_ = 1.0
-    penalty = 0.03
-    T = list()
-    for px in path:
-        # t.append(np.mean(ground_truth[px[0], px[1]])/255)
-        h, w, _ = ground_truth.shape
-        a = max(0, px[0]-int(r/2))
-        b = min(h-1, px[0]+int(r/2))
-        c = max(0, px[1]-int(r/2))
-        d = min(w-1, px[1]+int(r/2))
-        t = ground_truth[a:b, c:d]
-        t = t.mean(axis=2)/255
-        t = cv2.erode(t, np.ones((int(r/2), int(r/2)), np.uint8), iterations=1)
-        T.append(np.mean(t))
-    for i, t in enumerate(T):
-        if i < len(T) - 1 and i > 0:
-            if t < 0.5: score_ = np.maximum(0, score_ - penalty*(1-t))
-    return score_
-
 def draw_path(image, path, color=(0,255,0), found=False):
     image_copy = image.copy()
     if len(image_copy.shape) < 3:
@@ -189,75 +169,38 @@ def save_image(path, images):
 # Definição do tipo de dado Dataset
 Dataset = collections.namedtuple('Dataset', 'x_train y_train x_valid y_valid x_test y_test')
 
-# Caminho das imagens e seus rótulos
-X_path = 'dataset/X'
-Y_path = 'dataset/Y'
-
-X = []
-Y = []
 for imagename in sorted(os.listdir(X_path)):
+
+    if imagename != 'suburbs1000.jpg': continue
+
     x = cv2.imread(os.path.join(X_path, imagename))
     x = cv2.cvtColor(x, cv2.COLOR_BGR2RGB)
-    y = cv2.imread(os.path.join(Y_path, imagename), cv2.IMREAD_GRAYSCALE)
-    y = cv2.resize(y, (125, 125))/np.max(y)
-    X.append(x)
-    Y.append(y)
+    x = np.expand_dims(x, axis=0)
 
-X = np.array(X)
-Y = np.expand_dims(np.array(Y), 3)
-
-# LeaveOneOut
-cross_val = sklearn.model_selection.LeaveOneOut()
-cross_val.get_n_splits(X)
-
-# Total de amostras no dataset original
-total = len(X)
-
-# Percorre as divisões de conjuntos de treino e teste
-# Leave One Out
-for train_index, test_index in cross_val.split(X):
-
-    # Índice do conjunto de validação
-    val_index = (test_index + 1) % total
-    train_index = np.array([x for x in train_index if x not in val_index])
-
-    # Assinala os conjuntos de treino, validação e teste
-    X_train, X_test, X_val = X[train_index], X[test_index], X[val_index]
-    Y_train, Y_test, Y_val = Y[train_index], Y[test_index], Y[val_index]
-
-    dims = X_train.shape[1:]
+    dims = x.shape[1:]
 
     aerialcnn = aerialcnn_model(dims)
 
     # Definição do caminho para salvamento dos pesos
-    weights_path_loo = os.path.join(weights_path, 'weights_%d.hdf5' % (test_index[0]))
+    weights_path_loo = os.path.join(weights_path, 'weights_%d.hdf5' % (0))
 
     # Carregamento da melhor combinação de pesos obtida durante o treinamento
     aerialcnn.load_weights(weights_path_loo)
 
-    # Calcular perda sobre conjunto de teste
-    print('Test loss: %.4f' % (aerialcnn.evaluate(X_test, Y_test, verbose=0)))
-
     # Teste
     time__ = time.time()
 
-    y = aerialcnn.predict(X_test)
+    y = aerialcnn.predict([x])
     y = np.squeeze(y[0])
 
-    y__ = np.squeeze(Y_test[0])
-
     print('Time: %.3f s' % (time.time() - time__))
-
-    print("MSE: %.4f" % (((y - y__)**2).mean(axis=None)))
 
     # y = (y - np.min(y))
     # y = y/np.max(y)
 
-    # print("MSE 1: %.4f" % (((y - y__)**2).mean(axis=None)))
+    cv2.imwrite(os.path.join(output_path__, 'tfcn-output-%s.jpg' % (imagename[:-4])), 255*y)
 
-    cv2.imwrite(os.path.join(output_path__, 'tfcn-output-%02d.jpg' % (test_index[0]+1)), 255*y)
-
-    # show_image([X[test_index][0], y__, y])
+    # show_image([X[test_index][0], y])
     # plt.show()
 
     # continue
@@ -274,11 +217,12 @@ for train_index, test_index in cross_val.split(X):
     # y = np.array(clahe.apply((255*y).astype(np.uint8)), dtype=np.float32)/255
     # show_image([X[test_index][0], y])
 
-    t_matrix = y
-    ground_truth = load_image(os.path.join(Y_path, 'aerial%02d.jpg' % (test_index[0]+1)))
+    r__ = 8
 
-    keypoints_image = load_image(os.path.join(KP_path, 'aerial%02d.jpg' % (test_index[0]+1)))
-    grid = grid_list(X_test[0], 8)
+    t_matrix = y
+
+    keypoints_image = load_image(os.path.join(KP_path, imagename))
+    grid = grid_list(np.squeeze(x), r__)
     keypoints = graphmapx.get_keypoints(keypoints_image, grid)
 
     th = cv2.calcHist(y, [0], None, [100], [0, 1])
@@ -286,10 +230,10 @@ for train_index, test_index in cross_val.split(X):
     tv = np.arange(0, 1, 1/100)
     c = np.sum(th*tv)/np.sum(th)
 
-    router = graphmapx.RouteEstimator(r=8, c=c, grid=grid)
+    router = graphmapx.RouteEstimator(r=r__, c=c, grid=grid)
     G = router.tm2graph(t_matrix)
 
-    output_path = 'paths/%s' % ('aerial%02d' % (test_index[0]+1))
+    output_path = 'paths/%s' % (imagename[:-4])
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
@@ -297,17 +241,13 @@ for train_index, test_index in cross_val.split(X):
 
         path, found = router.route(G, s, t, t_matrix)
 
-        score__ = score(path, ground_truth, 8)
-
         font                   = cv2.FONT_HERSHEY_SIMPLEX
         topLeftCornerOfText    = (10, 40)
         fontScale              = 1
         lineType               = 2
 
-        fontColor = (255,0,0) if score__ < 0.7 else (0,255,0)
+        fontColor = (0,255,0)
 
-        path_image = draw_path(X_test[0], path, found=found, color=fontColor)
-        cv2.putText(path_image, 'Score: %.2f' % (score__),
-                    topLeftCornerOfText, font, fontScale, fontColor, lineType)
+        path_image = draw_path(np.squeeze(x), path, found=found, color=fontColor)
 
         save_image(os.path.join(output_path, 'path-%d.jpg' % (counter+1)), [path_image])
