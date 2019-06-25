@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.17)  25 JUN 2019 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.17)  25 JUN 2019 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -496,211 +496,55 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 <graphics/eswa-proposal-flowchart.pdf, id=1, 598.15468pt x 128.3997pt>
 File: graphics/eswa-proposal-flowchart.pdf Graphic file (type pdf)
 <use graphics/eswa-proposal-flowchart.pdf>
 Package pdftex.def Info: graphics/eswa-proposal-flowchart.pdf  used on input li
-ne 90.
+ne 92.
 (pdftex.def)             Requested size: 387.0pt x 83.07677pt.
 <graphics/proposal-flowchart.pdf, id=2, 590.205pt x 123.5817pt>
 File: graphics/proposal-flowchart.pdf Graphic file (type pdf)
 <use graphics/proposal-flowchart.pdf>
-Package pdftex.def Info: graphics/proposal-flowchart.pdf  used on input line 94
+Package pdftex.def Info: graphics/proposal-flowchart.pdf  used on input line 96
 .
 (pdftex.def)             Requested size: 387.0pt x 81.03427pt.
 <graphics/TFCN.pdf, id=3, 269.08528pt x 1065.9825pt>
 File: graphics/TFCN.pdf Graphic file (type pdf)
 <use graphics/TFCN.pdf>
-Package pdftex.def Info: graphics/TFCN.pdf  used on input line 108.
+Package pdftex.def Info: graphics/TFCN.pdf  used on input line 110.
 (pdftex.def)             Requested size: 154.80157pt x 613.2605pt.
 
-Underfull \hbox (badness 1910) in paragraph at lines 116--118
+Underfull \hbox (badness 1910) in paragraph at lines 118--120
 []\OT1/ptm/m/n/10 To val-i-date the new traversabil-ity es-ti-ma-tion method,
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 116--118
+Underfull \hbox (badness 1354) in paragraph at lines 118--120
 \OT1/ptm/m/n/10 scribes ATPD, the train-ing con-fig-u-ra-tion and the cross-
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+LaTeX Font Info:    Try loading font information for U+msa on input line 123.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 123.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Overfull \hbox (3.79045pt too wide) in paragraph at lines 189--205
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 158.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Overfull \hbox (3.79045pt too wide) in paragraph at lines 190--206
  [] 
  []
 
-<graphics/loss01.pdf, id=17, 270.00874pt x 266.9975pt>
-File: graphics/loss01.pdf Graphic file (type pdf)
-<use graphics/loss01.pdf>
-Package pdftex.def Info: graphics/loss01.pdf  used on input line 213.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial01.jpg, id=18, 1003.75pt x 1003.75pt>
-File: graphics/aerial01.jpg Graphic file (type jpg)
-<use graphics/aerial01.jpg>
-Package pdftex.def Info: graphics/aerial01.jpg  used on input line 217.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial01-trav.jpg, id=19, 1003.75pt x 1003.75pt>
-File: graphics/aerial01-trav.jpg Graphic file (type jpg)
-<use graphics/aerial01-trav.jpg>
-Package pdftex.def Info: graphics/aerial01-trav.jpg  used on input line 221.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-01.jpg, id=20, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-01.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-01.jpg>
-Package pdftex.def Info: graphics/tfcn-output-01.jpg  used on input line 225.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss02.pdf, id=21, 270.00874pt x 266.9975pt>
-File: graphics/loss02.pdf Graphic file (type pdf)
-<use graphics/loss02.pdf>
-Package pdftex.def Info: graphics/loss02.pdf  used on input line 235.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial02.jpg, id=22, 1003.75pt x 1003.75pt>
-File: graphics/aerial02.jpg Graphic file (type jpg)
-<use graphics/aerial02.jpg>
-Package pdftex.def Info: graphics/aerial02.jpg  used on input line 239.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial02-trav.jpg, id=23, 1003.75pt x 1003.75pt>
-File: graphics/aerial02-trav.jpg Graphic file (type jpg)
-<use graphics/aerial02-trav.jpg>
-Package pdftex.def Info: graphics/aerial02-trav.jpg  used on input line 243.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-02.jpg, id=24, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-02.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-02.jpg>
-Package pdftex.def Info: graphics/tfcn-output-02.jpg  used on input line 247.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss03.pdf, id=25, 270.00874pt x 266.9975pt>
-File: graphics/loss03.pdf Graphic file (type pdf)
-<use graphics/loss03.pdf>
-Package pdftex.def Info: graphics/loss03.pdf  used on input line 257.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial03.jpg, id=26, 1003.75pt x 1003.75pt>
-File: graphics/aerial03.jpg Graphic file (type jpg)
-<use graphics/aerial03.jpg>
-Package pdftex.def Info: graphics/aerial03.jpg  used on input line 261.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial03-trav.jpg, id=27, 1003.75pt x 1003.75pt>
-File: graphics/aerial03-trav.jpg Graphic file (type jpg)
-<use graphics/aerial03-trav.jpg>
-Package pdftex.def Info: graphics/aerial03-trav.jpg  used on input line 265.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-03.jpg, id=28, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-03.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-03.jpg>
-Package pdftex.def Info: graphics/tfcn-output-03.jpg  used on input line 269.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss04.pdf, id=29, 270.00874pt x 266.9975pt>
-File: graphics/loss04.pdf Graphic file (type pdf)
-<use graphics/loss04.pdf>
-Package pdftex.def Info: graphics/loss04.pdf  used on input line 279.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial04.jpg, id=30, 1003.75pt x 1003.75pt>
-File: graphics/aerial04.jpg Graphic file (type jpg)
-<use graphics/aerial04.jpg>
-Package pdftex.def Info: graphics/aerial04.jpg  used on input line 283.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial04-trav.jpg, id=31, 1003.75pt x 1003.75pt>
-File: graphics/aerial04-trav.jpg Graphic file (type jpg)
-<use graphics/aerial04-trav.jpg>
-Package pdftex.def Info: graphics/aerial04-trav.jpg  used on input line 287.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-04.jpg, id=32, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-04.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-04.jpg>
-Package pdftex.def Info: graphics/tfcn-output-04.jpg  used on input line 291.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss05.pdf, id=33, 270.00874pt x 266.9975pt>
-File: graphics/loss05.pdf Graphic file (type pdf)
-<use graphics/loss05.pdf>
-Package pdftex.def Info: graphics/loss05.pdf  used on input line 301.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial05.jpg, id=34, 1003.75pt x 1003.75pt>
-File: graphics/aerial05.jpg Graphic file (type jpg)
-<use graphics/aerial05.jpg>
-Package pdftex.def Info: graphics/aerial05.jpg  used on input line 305.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial05-trav.jpg, id=35, 1003.75pt x 1003.75pt>
-File: graphics/aerial05-trav.jpg Graphic file (type jpg)
-<use graphics/aerial05-trav.jpg>
-Package pdftex.def Info: graphics/aerial05-trav.jpg  used on input line 309.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-05.jpg, id=36, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-05.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-05.jpg>
-Package pdftex.def Info: graphics/tfcn-output-05.jpg  used on input line 313.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss06.pdf, id=37, 270.00874pt x 266.9975pt>
-File: graphics/loss06.pdf Graphic file (type pdf)
-<use graphics/loss06.pdf>
-Package pdftex.def Info: graphics/loss06.pdf  used on input line 323.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial06.jpg, id=38, 1003.75pt x 1003.75pt>
-File: graphics/aerial06.jpg Graphic file (type jpg)
-<use graphics/aerial06.jpg>
-Package pdftex.def Info: graphics/aerial06.jpg  used on input line 327.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial06-trav.jpg, id=39, 1003.75pt x 1003.75pt>
-File: graphics/aerial06-trav.jpg Graphic file (type jpg)
-<use graphics/aerial06-trav.jpg>
-Package pdftex.def Info: graphics/aerial06-trav.jpg  used on input line 331.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-06.jpg, id=40, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-06.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-06.jpg>
-Package pdftex.def Info: graphics/tfcn-output-06.jpg  used on input line 335.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss07.pdf, id=41, 270.00874pt x 266.9975pt>
-File: graphics/loss07.pdf Graphic file (type pdf)
-<use graphics/loss07.pdf>
-Package pdftex.def Info: graphics/loss07.pdf  used on input line 345.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial07.jpg, id=42, 1003.75pt x 1003.75pt>
-File: graphics/aerial07.jpg Graphic file (type jpg)
-<use graphics/aerial07.jpg>
-Package pdftex.def Info: graphics/aerial07.jpg  used on input line 349.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/aerial07-trav.jpg, id=43, 1003.75pt x 1003.75pt>
-File: graphics/aerial07-trav.jpg Graphic file (type jpg)
-<use graphics/aerial07-trav.jpg>
-Package pdftex.def Info: graphics/aerial07-trav.jpg  used on input line 353.
-(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
-<graphics/tfcn-output-07.jpg, id=44, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-07.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-07.jpg>
-Package pdftex.def Info: graphics/tfcn-output-07.jpg  used on input line 357.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
-<graphics/loss08.pdf, id=45, 270.00874pt x 266.9975pt>
-File: graphics/loss08.pdf Graphic file (type pdf)
-<use graphics/loss08.pdf>
-Package pdftex.def Info: graphics/loss08.pdf  used on input line 367.
-(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
-<graphics/aerial08.jpg, id=46, 722.7pt x 722.7pt>
-File: graphics/aerial08.jpg Graphic file (type jpg)
-<use graphics/aerial08.jpg>
-Package pdftex.def Info: graphics/aerial08.jpg  used on input line 371.
-(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
-<graphics/aerial08-trav.jpg, id=47, 722.7pt x 722.7pt>
-File: graphics/aerial08-trav.jpg Graphic file (type jpg)
-<use graphics/aerial08-trav.jpg>
-Package pdftex.def Info: graphics/aerial08-trav.jpg  used on input line 375.
-(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
-<graphics/tfcn-output-08.jpg, id=48, 125.46875pt x 125.46875pt>
-File: graphics/tfcn-output-08.jpg Graphic file (type jpg)
-<use graphics/tfcn-output-08.jpg>
-Package pdftex.def Info: graphics/tfcn-output-08.jpg  used on input line 379.
-(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
 [2 <./graphics/eswa-proposal-flowchart.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/eswa-proposal-flowchart.pdf)
@@ -711,15 +555,181 @@ pdfTeX warning: /usr/bin/pdflatex (file ./graphics/eswa-proposal-flowchart.pdf)
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/proposal-flowchart.pdf): PDF
  inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
 y>); ignored.
->] [3 <./graphics/TFCN.pdf
+>]
+<graphics/loss01.pdf, id=61, 270.00874pt x 266.9975pt>
+File: graphics/loss01.pdf Graphic file (type pdf)
+<use graphics/loss01.pdf>
+Package pdftex.def Info: graphics/loss01.pdf  used on input line 217.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial01.jpg, id=62, 1003.75pt x 1003.75pt>
+File: graphics/aerial01.jpg Graphic file (type jpg)
+<use graphics/aerial01.jpg>
+Package pdftex.def Info: graphics/aerial01.jpg  used on input line 221.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial01-trav.jpg, id=63, 1003.75pt x 1003.75pt>
+File: graphics/aerial01-trav.jpg Graphic file (type jpg)
+<use graphics/aerial01-trav.jpg>
+Package pdftex.def Info: graphics/aerial01-trav.jpg  used on input line 225.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-01.jpg, id=64, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-01.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-01.jpg>
+Package pdftex.def Info: graphics/tfcn-output-01.jpg  used on input line 229.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss02.pdf, id=65, 270.00874pt x 266.9975pt>
+File: graphics/loss02.pdf Graphic file (type pdf)
+<use graphics/loss02.pdf>
+Package pdftex.def Info: graphics/loss02.pdf  used on input line 239.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial02.jpg, id=66, 1003.75pt x 1003.75pt>
+File: graphics/aerial02.jpg Graphic file (type jpg)
+<use graphics/aerial02.jpg>
+Package pdftex.def Info: graphics/aerial02.jpg  used on input line 243.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial02-trav.jpg, id=67, 1003.75pt x 1003.75pt>
+File: graphics/aerial02-trav.jpg Graphic file (type jpg)
+<use graphics/aerial02-trav.jpg>
+Package pdftex.def Info: graphics/aerial02-trav.jpg  used on input line 247.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-02.jpg, id=68, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-02.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-02.jpg>
+Package pdftex.def Info: graphics/tfcn-output-02.jpg  used on input line 251.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss03.pdf, id=69, 270.00874pt x 266.9975pt>
+File: graphics/loss03.pdf Graphic file (type pdf)
+<use graphics/loss03.pdf>
+Package pdftex.def Info: graphics/loss03.pdf  used on input line 261.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial03.jpg, id=70, 1003.75pt x 1003.75pt>
+File: graphics/aerial03.jpg Graphic file (type jpg)
+<use graphics/aerial03.jpg>
+Package pdftex.def Info: graphics/aerial03.jpg  used on input line 265.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial03-trav.jpg, id=71, 1003.75pt x 1003.75pt>
+File: graphics/aerial03-trav.jpg Graphic file (type jpg)
+<use graphics/aerial03-trav.jpg>
+Package pdftex.def Info: graphics/aerial03-trav.jpg  used on input line 269.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-03.jpg, id=72, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-03.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-03.jpg>
+Package pdftex.def Info: graphics/tfcn-output-03.jpg  used on input line 273.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss04.pdf, id=73, 270.00874pt x 266.9975pt>
+File: graphics/loss04.pdf Graphic file (type pdf)
+<use graphics/loss04.pdf>
+Package pdftex.def Info: graphics/loss04.pdf  used on input line 283.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial04.jpg, id=74, 1003.75pt x 1003.75pt>
+File: graphics/aerial04.jpg Graphic file (type jpg)
+<use graphics/aerial04.jpg>
+Package pdftex.def Info: graphics/aerial04.jpg  used on input line 287.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial04-trav.jpg, id=75, 1003.75pt x 1003.75pt>
+File: graphics/aerial04-trav.jpg Graphic file (type jpg)
+<use graphics/aerial04-trav.jpg>
+Package pdftex.def Info: graphics/aerial04-trav.jpg  used on input line 291.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-04.jpg, id=76, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-04.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-04.jpg>
+Package pdftex.def Info: graphics/tfcn-output-04.jpg  used on input line 295.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss05.pdf, id=77, 270.00874pt x 266.9975pt>
+File: graphics/loss05.pdf Graphic file (type pdf)
+<use graphics/loss05.pdf>
+Package pdftex.def Info: graphics/loss05.pdf  used on input line 305.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial05.jpg, id=78, 1003.75pt x 1003.75pt>
+File: graphics/aerial05.jpg Graphic file (type jpg)
+<use graphics/aerial05.jpg>
+Package pdftex.def Info: graphics/aerial05.jpg  used on input line 309.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial05-trav.jpg, id=79, 1003.75pt x 1003.75pt>
+File: graphics/aerial05-trav.jpg Graphic file (type jpg)
+<use graphics/aerial05-trav.jpg>
+Package pdftex.def Info: graphics/aerial05-trav.jpg  used on input line 313.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-05.jpg, id=80, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-05.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-05.jpg>
+Package pdftex.def Info: graphics/tfcn-output-05.jpg  used on input line 317.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss06.pdf, id=81, 270.00874pt x 266.9975pt>
+File: graphics/loss06.pdf Graphic file (type pdf)
+<use graphics/loss06.pdf>
+Package pdftex.def Info: graphics/loss06.pdf  used on input line 327.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial06.jpg, id=82, 1003.75pt x 1003.75pt>
+File: graphics/aerial06.jpg Graphic file (type jpg)
+<use graphics/aerial06.jpg>
+Package pdftex.def Info: graphics/aerial06.jpg  used on input line 331.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial06-trav.jpg, id=83, 1003.75pt x 1003.75pt>
+File: graphics/aerial06-trav.jpg Graphic file (type jpg)
+<use graphics/aerial06-trav.jpg>
+Package pdftex.def Info: graphics/aerial06-trav.jpg  used on input line 335.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-06.jpg, id=84, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-06.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-06.jpg>
+Package pdftex.def Info: graphics/tfcn-output-06.jpg  used on input line 339.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss07.pdf, id=85, 270.00874pt x 266.9975pt>
+File: graphics/loss07.pdf Graphic file (type pdf)
+<use graphics/loss07.pdf>
+Package pdftex.def Info: graphics/loss07.pdf  used on input line 349.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial07.jpg, id=86, 1003.75pt x 1003.75pt>
+File: graphics/aerial07.jpg Graphic file (type jpg)
+<use graphics/aerial07.jpg>
+Package pdftex.def Info: graphics/aerial07.jpg  used on input line 353.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial07-trav.jpg, id=87, 1003.75pt x 1003.75pt>
+File: graphics/aerial07-trav.jpg Graphic file (type jpg)
+<use graphics/aerial07-trav.jpg>
+Package pdftex.def Info: graphics/aerial07-trav.jpg  used on input line 357.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-07.jpg, id=88, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-07.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-07.jpg>
+Package pdftex.def Info: graphics/tfcn-output-07.jpg  used on input line 361.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss08.pdf, id=89, 270.00874pt x 266.9975pt>
+File: graphics/loss08.pdf Graphic file (type pdf)
+<use graphics/loss08.pdf>
+Package pdftex.def Info: graphics/loss08.pdf  used on input line 371.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial08.jpg, id=90, 722.7pt x 722.7pt>
+File: graphics/aerial08.jpg Graphic file (type jpg)
+<use graphics/aerial08.jpg>
+Package pdftex.def Info: graphics/aerial08.jpg  used on input line 375.
+(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
+<graphics/aerial08-trav.jpg, id=91, 722.7pt x 722.7pt>
+File: graphics/aerial08-trav.jpg Graphic file (type jpg)
+<use graphics/aerial08-trav.jpg>
+Package pdftex.def Info: graphics/aerial08-trav.jpg  used on input line 379.
+(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
+<graphics/tfcn-output-08.jpg, id=92, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-08.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-08.jpg>
+Package pdftex.def Info: graphics/tfcn-output-08.jpg  used on input line 383.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+ [3 <./graphics/TFCN.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/TFCN.pdf): PDF inclusion: in
 valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./graphics/loss01.pdf> <./graphics/aerial01.jpg> <./graphics/aerial01-trav
-.jpg> <./graphics/tfcn-output-01.jpg> <./graphics/loss02.pdf
+
+Overfull \hbox (271.53043pt too wide) in paragraph at lines 460--468
+  []
+ []
+
+[4 <./graphics/loss01.pdf> <./graphics/aerial01.jpg> <./graphics/aerial01-trav.
+jpg> <./graphics/tfcn-output-01.jpg> <./graphics/loss02.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss02.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
@@ -729,16 +739,8 @@ put-02.jpg> <./graphics/loss03.pdf
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss03.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 > <./graphics/aerial03.jpg> <./graphics/aerial03-trav.jpg> <./graphics/tfcn-out
-put-03.jpg>]
-Overfull \hbox (271.53043pt too wide) in paragraph at lines 465--472
-  [] 
- []
-
-
-Underfull \vbox (badness 4024) has occurred while \output is active []
-
- [5 <./graphics/loss04.pdf> <./graphics/aerial04.jpg> <./graphics/aerial04-trav
-.jpg> <./graphics/tfcn-output-04.jpg> <./graphics/loss05.pdf
+put-03.jpg>] [5 <./graphics/loss04.pdf> <./graphics/aerial04.jpg> <./graphics/a
+erial04-trav.jpg> <./graphics/tfcn-output-04.jpg> <./graphics/loss05.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss05.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
@@ -768,11 +770,11 @@ multiple pdfs with page group included in a single page
 > <./graphics/aerial08.jpg> <./graphics/aerial08-trav.jpg> <./graphics/tfcn-out
 put-08.jpg>] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 6252 strings out of 492982
- 95124 string characters out of 6134896
- 177698 words of memory out of 5000000
- 9675 multiletter control sequences out of 15000+600000
- 42851 words of font info for 87 fonts, out of 8000000 for 9000
+ 6275 strings out of 492982
+ 95468 string characters out of 6134896
+ 174479 words of memory out of 5000000
+ 9694 multiletter control sequences out of 15000+600000
+ 43165 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,15n,49p,344b,721s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
@@ -787,7 +789,7 @@ pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on article.pdf (6 pages, 8983840 bytes).
+Output written on article.pdf (6 pages, 8984833 bytes).
 PDF statistics:
  438 PDF objects out of 1000 (max. 8388607)
  149 compressed objects within 2 object streams

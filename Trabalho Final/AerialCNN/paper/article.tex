@@ -44,10 +44,9 @@ Traversability computation is a key step for robot path planning.
 It allows the incorporation of knowledge about traversable and non-traversable terrain into the robot's planning algorithms.
 It is possible to use aerial data to compute traversability maps for large regions of land and use them to assist ground robot navigation.
 Most published methods to generate these maps from aerial images use terrain classification in combination with predefined traversability values for each class or simple heuristics.
-Classification, however, can be computationally expensive. 
-Using only handcrafted heuristics disregards the possible advantage of learning hidden structures in image data.
-This work describes a new method to compute a traversability map from an aerial image in only one forward pass through a fully convolutional neural network.
-It analyzes the advantages and current disadvantages of this approach.
+However, current methods based on classification or handcrafted heuristics present limitations with regard to output quality and processing time.
+To overcome these issues, this work describes a new method to compute a traversability map from an aerial image in one forward pass through a fully convolutional neural network.
+It analyzes the technical features of this approach relative to other methods.
 The experiments yield evidence that the proposed model can generate traversability maps faster while also providing lower error outputs.
 \end{abstract}
 
@@ -58,17 +57,20 @@ traversability, mapping, convolutional neural networks, aerial images, ground ro
 \section{Introduction}
 
 The traversability index was proposed by Seraji \cite{seraji:1999}.
-It was a simple way to distinguish traversable from non-traversable terrain and apply this knowledge to navigation strategies for robots.
+It is a simple way to distinguish traversable from non-traversable terrain and apply this knowledge to navigation strategies for robots.
 Traversability is a quantification of how much a given region is suitable to be crossed by a moving robot or vehicle.
-The concept was extended and applied in robot planning tasks using a wide range of techniques to estimate traversability maps, from digital images to laser scanning \cite{howard:2001,howard:2003,castejon:2005,guo:2008,shneier:2008}.
+The concept was extended and applied in robot planning tasks.
+Researchers used a wide range of sensing devices and methods to estimate traversability maps from the ground \cite{howard:2001,howard:2003,castejon:2005,guo:2008,shneier:2008}.
 
 With the rise in popularity of low cost multirotor drones and the increased availability of high resolution satellite images, a new idea to assist in robot navigation surfaced: the use of aerial images to add long range planning capabilities to ground robots.
 This was explored, for example, by \cite{vandapel:2006,hudjakov:2011,hudjakov:2013,delmerico:2017,borges:2019} and others.
 In these works, some of the proposed methods to generate traversability maps require depth data \cite{vandapel:2006,delmerico:2017}, while others need only RGB images \cite{hudjakov:2011,hudjakov:2013,borges:2019}.
-The core traversability computation approach also varied between heuristics \cite{vandapel:2006,borges:2019} and classification + heuristics \cite{hudjakov:2011,hudjakov:2013,delmerico:2017}.
+The core traversability computation approach also varied between heuristics \cite{vandapel:2006,borges:2019} and classification combined with heuristics \cite{hudjakov:2011,hudjakov:2013,delmerico:2017}.
 
+However, classification is computationally expensive if executed over all sub-regions of an image.
+On the other hand, using only handcrafted heuristics disregards the possible advantage of learning hidden structures in image data.
 This work proposes a machine learning approach to compute traversabilities from raw image data.
-It is an extension of the method described in \cite{borges:2019} that replaces the heuristic-based sub-region computations with an end-to-end traversability estimation based on a fully convolutional neural network.
+It is an extension of the method described in \cite{borges:2019} that replaces the heuristic-based sub-region computations with end-to-end traversability estimation based on a fully convolutional neural network.
 This method is described in detail in section \ref{section:proposed-method}.
 The experiments performed to validate the network architecture are explained in section \ref{section:experiments}.
 Results and a discussion about the merits and drawbacks of the method are explored in sections \ref{section:results} and \ref{section:discussion}.
@@ -77,28 +79,28 @@ Section \ref{section:conclusion} closes this paper with a brief review.
 \section{Proposed Method}
 \label{section:proposed-method}
 
-The mapping and planning approach previously described in \cite{borges:2019} is shown in Fig. \ref{fig:eswa}.
+The traversability mapping approach previously described in \cite{borges:2019} is shown in Fig. \ref{fig:eswa}.
 The input image, which is an aerial view of the ground region, is submitted to bilateral filtering and partitioned into sub-regions that may overlap.
-A predefined function is used to compute a degree of traversability for each sub-region.
-These values are then stored in a traversability matrix ($\mathcal{T}$) that preserves the relative position of the sub-regions.
-$\mathcal{T}$ is used to build a graph representation of the region and its traversabilities; in this graph, vertices represent sub-regions and edge weights are inversely proportional to the traversability between adjacent regions.
+A handcrafted heuristic is used to compute a degree of traversability for each sub-region.
+These values are then stored in a traversability matrix that preserves the relative position of the sub-regions.
+This matrix is used to build a graph representation of the region and its traversabilities; in this graph, vertices represent sub-regions and edge weights are inversely proportional to the traversability between adjacent regions.
 A shortest path search algorithm is then used to find a path between any chosen source and target sub-regions.
 
 \begin{figure*}[ht]
 \centering
 
-\subfloat[ESWA proposal]{\includegraphics[width=0.75\textwidth]{graphics/eswa-proposal-flowchart.pdf}\label{fig:eswa}}
+\subfloat[Traversability mapping approach from \cite{borges:2019}]{\includegraphics[width=0.75\textwidth]{graphics/eswa-proposal-flowchart.pdf}\label{fig:eswa}}
 
-\vspace{0.75cm}
+\vspace{0.25cm}
 
 \subfloat[TFCN proposal]{\includegraphics[width=0.75\textwidth]{graphics/proposal-flowchart.pdf}\label{fig:proposal}}
 
-\caption{Experimental results}
+\caption{Difference between traversability computation models.}
 \label{fig:flocharts}
 \end{figure*}
 
-This work builds upon the approach described in \cite{borges:2019}, replacing the conventional preprocessing, partitioning and traversability computation pipeline with a Fully Convolutional Neural Network (FCN), as displayed in Fig. \ref{fig:proposal}.
-The proposed traversability estimation method uses an FCN to derive a traversability matrix $\mathcal{T}$ directly from raw RGB images.
+The present work builds upon this approach, but replaces the conventional preprocessing, partitioning and traversability computation pipeline with a fully convolutional neural network (FCN), as displayed in Fig. \ref{fig:proposal}.
+The proposed traversability estimation method uses an FCN to derive a traversability matrix directly from raw RGB images.
 The Traversability FCN (TFCN) architecture is shown in Fig. \ref{fig}.
 It is a small network, composed of three phases of convolutions and pooling.
 Batch normalization steps are performed after convolutional layers as a way to mitigate internal covariate shift and reduce training time \cite{ioffe:2015}.
@@ -106,7 +108,7 @@ In order to counter overfitting, the TFCN also performs dropout \cite{srivastava
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.3\textwidth]{graphics/TFCN.pdf}}
-\caption{Example of a figure caption.}
+\caption{TFCN architecture.}
 \label{fig}
 \end{figure}
 
@@ -120,6 +122,8 @@ This section describes ATPD, the training configuration and the cross-validation
 
 The Aerial Traversability and Planning Dataset (ATPD) \cite{borges:2019} contains 8 orthorectified aerial images of size $1000 \times 1000$ pixels, with specified spatial resolutions of about $0.3 \times 0.3 \ m^2/p$.
 Each image has a corresponding traversability label, in which every pixel from the original image is assigned a binary value: 1 if the original pixel is in a traversable sub-region and 0 otherwise.
+These images and labels were used to assemble the training inputs and outputs.
+To fit the size of the TFCN output, the traversability labels were resized to $125 \times 125$ pixels.
 % An aerial image and its traversability label from ATPD can be seen in Fig. \ref{fig:atpd-sample}.
 % The dataset also includes two sets of keypoint coordinates for each image. 
 % The first set has 12 reachable keypoints (Fig. \ref{fig:positive-keypoints}) and is useful to verify whether a path planning approach can generate a safe route between them.
@@ -148,26 +152,25 @@ Each image has a corresponding traversability label, in which every pixel from t
 
 \subsection{Data Augmentation}
 
-It is known that a convolutional neural network (CNN) usually requires a large amount of training data in order to converge and perform properly [needs citation].
-However, ATPD only includes 8 aerial images with labeled traversabilities.
-It is a very small dataset for a CNN.
-For this reason, the training sets are augmented with random rotations, shifts, flips, shear and zoom.
-The outcome of these operations might require padding (e.g. rotation, shift and shear).
-In these cases, the resulting image is padded by reflection, so that added pixels are similar to those in the neighboring region.
+ATPD only includes 8 aerial images with labeled traversabilities.
+It is a very small dataset.
+For this reason, the training sets were augmented with random rotations, shifts, flips, shear and zoom.
+The range of rotations was 0º to 360º; maximum of 30\% horizontal or vertical shift; horizontal and vertical flips; maximum 30º shear; and 20\% zoom.
+In the cases the outcome of these operations required padding (e.g. rotation, shift and shear), the resulting image was padded by reflection, so that added pixels were similar to those in their neighboring region.
 
 \subsection{Training}
 
 The TFCN was trained with Adam optimization \cite{kingma:2015}, mean squared error (MSE) loss and early stopping \cite{prechelt:2012}.
-Training was carried on for a maximum of 100 epochs, but interrupted if there was no validation loss improvement after 20 consecutive epochs.
+Training was carried on for a maximum of 100 epochs, but interrupted if there was no validation loss improvement of at least 0.001 after 20 consecutive epochs.
 A checkpoint routine was used to save the weight configuration with the best validation loss during each training execution.
 This configuration was the output of the training phase in the experiments.
 
 \subsection{Cross-validation}
 
 An image-based leave-one-out cross-validation was employed to study the generalization capability of the TFCN.
-In this approach, each of the eight aerial images from ATPD is used once for testing, while the other seven are selected to train the TFCN.
-These seven images are further split into a training set composed of six images and their augmentations; and a validation set of one image and its augmentations.
-Training sets have $6 \times 128 = 768$ samples (images $\times$ augmentations), while validation sets have $1 \times 128$ samples.
+In this approach, each of the eight aerial images from ATPD was used once for testing, while the other seven were selected to train the TFCN.
+These seven images were further split into a training set composed of six images and their augmentations; and a validation set of one image and its augmentations.
+Training sets had $6 \times 4 \times 32 = 768$ samples (images $\times$ steps $\times$ augmentations), while validation sets had $1 \times 4 \times 32 = 128$.
 
 The chosen cross-validation approach is fair because it guarantees that samples from the test set were not used in any way during training.
 Moreover, the best weight configuration is chosen based on the loss computed on the validation set, which also has no intersection with the training and test sets.
@@ -175,17 +178,15 @@ Moreover, the best weight configuration is chosen based on the loss computed on 
 \section{Results}
 \label{section:results}
 
-The behavior of the training and validation losses, along with visualizations of the test images, test labels and TFCN outputs from each leave-one-out step can be seen in Figs. \ref{fig:results-01} through \ref{fig:results-08}.
+The behavior of training and validation losses, along with visualizations of the test images, test labels and TFCN outputs from each leave-one-out step can be seen in Figs. \ref{fig:results-01}--\ref{fig:results-08}.
 Because training was done with early stopping, the number of epochs in each leave-one-out step was variable.
 This is shown in the graphs as an abrupt interruption of the loss curves after 20 epochs without validation loss improvement.
 The average time to complete one epoch was 28 seconds.
-
-The training, validation and test losses obtained using the best weight configuration in each leave-one-out step, together with the number of epochs to finish the training phases, are summarized in Table \ref{tab:results}.
-These losses are the sum of the MSE and the L2 regularization penalties.
+The full leave-one-out took 4 hours to complete.
 
 \begin{table}[htbp]
 \begin{center}
-\caption{Results}
+\caption{Cross-Validation Results}
 \begin{tabular}{|c|c c| c c c|}
 \hline
 \textbf{Leave-one-out} & \textbf{Total} & \textbf{Best} & \textbf{Training} & \textbf{Validation} & \textbf{Test} \\
@@ -204,6 +205,9 @@ These losses are the sum of the MSE and the L2 regularization penalties.
 \label{tab:results}
 \end{center}
 \end{table}
+
+The training, validation and test losses obtained using the best weight configuration in each leave-one-out step, together with the number of epochs to finish the training phases, are summarized in Table \ref{tab:results}.
+These losses are the sum of the MSE and the L2 regularization penalties.
 
 \begin{figure*}[ht]
 \centering
@@ -384,14 +388,14 @@ These losses are the sum of the MSE and the L2 regularization penalties.
 \section{Discussion}
 \label{section:discussion}
 
-It can be seen in Figs. \ref{fig:results-01} through \ref{fig:results-07} that the TFCN outputs closely resemble their corresponding ground truth labels.
+It can be seen in Figs. \ref{fig:results-01}--\ref{fig:results-07} that the TFCN outputs closely resemble their corresponding ground-truth labels.
 This is supported by their relatively low test loss values in Table \ref{tab:results}.
 Besides, a number of issues can be observed in the traversability maps.
 For example, in the output of Fig. \ref{fig:results-01}, some road patches were marked as not traversable, making it difficult to find shortest paths that might go through these sub-regions.
 In Fig. \ref{fig:results-02}, roofs were set as traversable, possibly because their colors and textures look almost the same as the roads'.
 The power cables and trails in Fig. \ref{fig:results-03} were given low traversabilities, even though they do not represent real obstacles for a ground robot.
-Despite the admirable global performance of the TFCN, these small failures can be significant when applying the model in a real scenario.
-Further research is needed to discover how to deal with these issues without compromising the overall achievement.
+Despite the notable global performance of the TFCN, these small failures can be significant when applying the model in a real scenario.
+Further research is needed to deal with these issues without compromising the overall achievement.
 
 A larger problem, however, can be identified in Fig. \ref{fig:results-08}, in which there is an attempt to compute the traversability of image 8 from ATPD.
 In this case, the TFCN provided a bad traversability estimate.
@@ -404,7 +408,7 @@ A possible advance would be to find a method to weight the influence of color an
 
 \begin{table}[htbp]
 \begin{center}
-\caption{MSE comparison}
+\caption{MSE Comparison}
 \begin{tabular}{|c|c c|}
 \hline
 \textbf{Input Image} & \textbf{Borges et al.\cite{borges:2019}} & \textbf{TFCN} \\
@@ -435,46 +439,49 @@ For image 7, a good hypothesis to account for the unusually high MSE is that in 
 The overall MSE comparison shows that the TFCN overcomes the mentioned competitor with respect to quality of traversability outputs.
 However, further research is needed to fix the observed generalization issue.
 
-
-To analyze the TFCN with regard to processing time, two papers were selected.
+To analyze the TFCN with regard to time, two papers were selected.
 The works by Hudjakov and Tamre \cite{hudjakov:2013} and Borges et al. \cite{borges:2019} were chosen because they clearly state the processing times achieved by their models.
 Moreover, \cite{hudjakov:2013} also uses CNNs to compute traversabilities, making it a good candidate for comparison and validation of a new CNN architecture.
-The processing times in Table \ref{tab:comparison-time} regarding the work by H \& T were extracted directly from the paper, in which the authors compute traversability maps over images of $2000 \times 2000$ pixels.
+
+\begin{table}[htbp]
+	\begin{center}
+		\caption{TIME comparison}
+		\begin{tabular}{|c|c c c|}
+			\hline
+			\textbf{Input Image} & \textbf{H. \& T. \cite{hudjakov:2013}} & \textbf{Borges et al.\cite{borges:2019}} & \textbf{TFCN} \\
+			% \cline{2-4}
+			\textbf{Size} & \textbf{Time (s)} & \textbf{Time (s)} & \textbf{Time (s)} \\
+			\hline
+			$1000 \times 1000$ & 1250 \ $^{b*}$  \ \ \ 11 \ $^{c*}$ & 0.834 \ $^{a\ }$ & \cellcolor{blue!15} 0.775 \ $^{a}$ \\ %\hline
+			$2000 \times 2000$ & 5000 \ $^{b\phantom{*}}$  \ \ \ 44 \ $^{c\ }$ & 3.336 \ $^{a*}$ & \cellcolor{blue!15} 2.583 \ $^{a}$ \\ \hline
+		\end{tabular} \\[0.01cm]
+		\label{tab:comparison-time}
+	\end{center}
+	\hspace{0.2cm}
+	\begin{minipage}[t]{\textwidth}
+		\scriptsize{a. Intel Core i5 650 CPU} \\
+		\scriptsize{b. Intel Core i7 920 CPU} \\
+		\scriptsize{c. 2x Nvidia GTX 570 GPUs} \\
+		\scriptsize{* Estimate based on number of patterns per image and processing speed}
+	\end{minipage}
+\vspace{-0.56cm}
+\end{table}
+
+The processing times in Table \ref{tab:comparison-time} regarding the work by H. \& T. were extracted directly from the paper, in which the authors compute traversability maps over images of $2000 \times 2000$ pixels.
 The values for images of $1000 \times 1000$ pixels were extrapolated from information about total patterns in the image and number of patterns classified per second, as stated in the paper.
 The remaining processing times were obtained from implementations of the models.
 It is clear from Table \ref{tab:comparison-time} that the TFCN greatly reduces processing times when compared with \cite{hudjakov:2013}, even when running on less powerful hardware.
-The reason for this large advantage is that the TFCN generates the entire traversability map in only one forward pass through the network, while the CNN model proposed by H \& T needs to perform classification on millions of overlapping patterns to produce a single map.
+The reason for this large advantage is that the TFCN generates the entire traversability map in only one forward pass through the network, while the CNN model proposed by H. \& T. needs to perform classification on millions of overlapping patterns to produce a single map.
 The TFCN also outperforms \cite{borges:2019} by a narrower margin.
 This difference, however, could greatly increase if the input images were larger.
 
 
-\begin{table}[htbp]
-\begin{center}
-\caption{TIME comparison}
-\begin{tabular}{|c|c c c|}
-\hline
-\textbf{Input Image} & \textbf{H. \& T. \cite{hudjakov:2013}} & \textbf{Borges et al.\cite{borges:2019}} & \textbf{TFCN} \\
-% \cline{2-4}
-\textbf{Size} & \textbf{Time (s)} & \textbf{Time (s)} & \textbf{Time (s)} \\
-\hline
-$1000 \times 1000$ & 1250 \ $^{b*}$  \ \ \ 11 \ $^{c*}$ & 0.834 \ $^{a\ }$ & \cellcolor{blue!15} 0.775 \ $^{a}$ \\ %\hline
-$2000 \times 2000$ & 5000 \ $^{b\phantom{*}}$  \ \ \ 44 \ $^{c\ }$ & 3.336 \ $^{a*}$ & \cellcolor{blue!15} 2.583 \ $^{a}$ \\ \hline
-\end{tabular} \\[0.01cm]
-\label{tab:comparison-time}
-\end{center}
-\hspace{0.2cm}
-\begin{minipage}[t]{\textwidth}
-\scriptsize{a. Intel Core i5 650 CPU} \\
-\scriptsize{b. Intel Core i7 920 CPU} \\
-\scriptsize{c. 2x Nvidia GTX 570 GPUs} \\
-\scriptsize{* Estimate based on number of patterns per image and processing speed}
-\end{minipage}
-\end{table}
+
 
 \section{Conclusion}
 \label{section:conclusion}
 
-This work proposed TFCN, a new fully convolutional neural network model to compute traversabilities from aerial images with the purpose of helping ground robot navigation.
+This work proposed TFCN, a new fully convolutional neural network model to compute traversabilities from aerial images with the purpose of assisting ground robot navigation.
 The TFCN was trained on the Aerial Traversability and Planning Dataset and cross-validated using an image-based leave-one-out approach.
 The results showed that the TFCN outperformed its competitors with regard to quality of traversability outputs, as measured with MSE against ground-truths, and processing time.
 However, it was shown that the current implementation of the TFCN has a generalization issue when it comes to terrain type.
