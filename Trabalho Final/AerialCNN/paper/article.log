@@ -1,0 +1,796 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.17)  25 JUN 2019 15:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**article.tex
+(./article.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmpcountC=\count81
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@IEEEsubequation=\count86
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count87
+\c@table=\count88
+\@IEEEeqnnumcols=\count89
+\@IEEEeqncolcnt=\count90
+\@IEEEsubeqnnumrollback=\count91
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count92
+\@IEEEquantizeboxA=\box26
+\@IEEEtmpitemindent=\dimen124
+\IEEEPARstartletwidth=\dimen125
+\c@IEEEbiography=\count93
+\@IEEEtranrubishbin=\box27
+) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count94
+\uc@combtoks=\toks17
+\uc@combtoksb=\toks18
+\uc@temptokena=\toks19
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen126
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen128
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks21
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks22
+\eqnshift@=\dimen129
+\alignsep@=\dimen130
+\tagshift@=\dimen131
+\tagwidth@=\dimen132
+\totwidth@=\dimen133
+\lineht@=\dimen134
+\@envbody=\toks23
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+\c@ALC@unique=\count107
+\c@ALC@line=\count108
+\c@ALC@rem=\count109
+\c@ALC@depth=\count110
+\ALC@tlm=\skip47
+\algorithmicindent=\skip48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen137
+\extrarowheight=\dimen138
+\NC@list=\toks26
+\extratabsurround=\skip49
+\backup@length=\skip50
+)
+\everycr=\toks27
+\minrowclearance=\skip51
+)
+\rownum=\count111
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count112
+\float@exts=\toks28
+\float@box=\box30
+\@float@everytoks=\toks29
+\@floatcapt=\box31
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen139
+\captionmargin@=\dimen140
+\captionwidth=\dimen141
+\caption@tempdima=\dimen142
+\caption@indent=\dimen143
+\caption@parindent=\dimen144
+\caption@hangindent=\dimen145
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+\c@KVtest=\count113
+\sf@farskip=\skip52
+\sf@captopadj=\dimen146
+\sf@capskip=\skip53
+\sf@nearskip=\skip54
+\c@subfigure=\count114
+\c@subfigure@save=\count115
+\c@lofdepth=\count116
+\c@subtable=\count117
+\c@subtable@save=\count118
+\c@lotdepth=\count119
+\sf@top=\skip55
+\sf@bottom=\skip56
+) (./article.aux)
+\openout1 = `article.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 13.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 13.
+
+-- Lines per column: 56 (exact).
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count120
+\scratchdimen=\dimen147
+\scratchbox=\box32
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen148
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks31
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<graphics/eswa-proposal-flowchart.pdf, id=1, 598.15468pt x 128.3997pt>
+File: graphics/eswa-proposal-flowchart.pdf Graphic file (type pdf)
+<use graphics/eswa-proposal-flowchart.pdf>
+Package pdftex.def Info: graphics/eswa-proposal-flowchart.pdf  used on input li
+ne 90.
+(pdftex.def)             Requested size: 387.0pt x 83.07677pt.
+<graphics/proposal-flowchart.pdf, id=2, 590.205pt x 123.5817pt>
+File: graphics/proposal-flowchart.pdf Graphic file (type pdf)
+<use graphics/proposal-flowchart.pdf>
+Package pdftex.def Info: graphics/proposal-flowchart.pdf  used on input line 94
+.
+(pdftex.def)             Requested size: 387.0pt x 81.03427pt.
+<graphics/TFCN.pdf, id=3, 269.08528pt x 1065.9825pt>
+File: graphics/TFCN.pdf Graphic file (type pdf)
+<use graphics/TFCN.pdf>
+Package pdftex.def Info: graphics/TFCN.pdf  used on input line 108.
+(pdftex.def)             Requested size: 154.80157pt x 613.2605pt.
+
+Underfull \hbox (badness 1910) in paragraph at lines 116--118
+[]\OT1/ptm/m/n/10 To val-i-date the new traversabil-ity es-ti-ma-tion method,
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 116--118
+\OT1/ptm/m/n/10 scribes ATPD, the train-ing con-fig-u-ra-tion and the cross-
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+Overfull \hbox (3.79045pt too wide) in paragraph at lines 189--205
+ [] 
+ []
+
+<graphics/loss01.pdf, id=17, 270.00874pt x 266.9975pt>
+File: graphics/loss01.pdf Graphic file (type pdf)
+<use graphics/loss01.pdf>
+Package pdftex.def Info: graphics/loss01.pdf  used on input line 213.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial01.jpg, id=18, 1003.75pt x 1003.75pt>
+File: graphics/aerial01.jpg Graphic file (type jpg)
+<use graphics/aerial01.jpg>
+Package pdftex.def Info: graphics/aerial01.jpg  used on input line 217.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial01-trav.jpg, id=19, 1003.75pt x 1003.75pt>
+File: graphics/aerial01-trav.jpg Graphic file (type jpg)
+<use graphics/aerial01-trav.jpg>
+Package pdftex.def Info: graphics/aerial01-trav.jpg  used on input line 221.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-01.jpg, id=20, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-01.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-01.jpg>
+Package pdftex.def Info: graphics/tfcn-output-01.jpg  used on input line 225.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss02.pdf, id=21, 270.00874pt x 266.9975pt>
+File: graphics/loss02.pdf Graphic file (type pdf)
+<use graphics/loss02.pdf>
+Package pdftex.def Info: graphics/loss02.pdf  used on input line 235.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial02.jpg, id=22, 1003.75pt x 1003.75pt>
+File: graphics/aerial02.jpg Graphic file (type jpg)
+<use graphics/aerial02.jpg>
+Package pdftex.def Info: graphics/aerial02.jpg  used on input line 239.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial02-trav.jpg, id=23, 1003.75pt x 1003.75pt>
+File: graphics/aerial02-trav.jpg Graphic file (type jpg)
+<use graphics/aerial02-trav.jpg>
+Package pdftex.def Info: graphics/aerial02-trav.jpg  used on input line 243.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-02.jpg, id=24, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-02.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-02.jpg>
+Package pdftex.def Info: graphics/tfcn-output-02.jpg  used on input line 247.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss03.pdf, id=25, 270.00874pt x 266.9975pt>
+File: graphics/loss03.pdf Graphic file (type pdf)
+<use graphics/loss03.pdf>
+Package pdftex.def Info: graphics/loss03.pdf  used on input line 257.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial03.jpg, id=26, 1003.75pt x 1003.75pt>
+File: graphics/aerial03.jpg Graphic file (type jpg)
+<use graphics/aerial03.jpg>
+Package pdftex.def Info: graphics/aerial03.jpg  used on input line 261.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial03-trav.jpg, id=27, 1003.75pt x 1003.75pt>
+File: graphics/aerial03-trav.jpg Graphic file (type jpg)
+<use graphics/aerial03-trav.jpg>
+Package pdftex.def Info: graphics/aerial03-trav.jpg  used on input line 265.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-03.jpg, id=28, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-03.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-03.jpg>
+Package pdftex.def Info: graphics/tfcn-output-03.jpg  used on input line 269.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss04.pdf, id=29, 270.00874pt x 266.9975pt>
+File: graphics/loss04.pdf Graphic file (type pdf)
+<use graphics/loss04.pdf>
+Package pdftex.def Info: graphics/loss04.pdf  used on input line 279.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial04.jpg, id=30, 1003.75pt x 1003.75pt>
+File: graphics/aerial04.jpg Graphic file (type jpg)
+<use graphics/aerial04.jpg>
+Package pdftex.def Info: graphics/aerial04.jpg  used on input line 283.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial04-trav.jpg, id=31, 1003.75pt x 1003.75pt>
+File: graphics/aerial04-trav.jpg Graphic file (type jpg)
+<use graphics/aerial04-trav.jpg>
+Package pdftex.def Info: graphics/aerial04-trav.jpg  used on input line 287.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-04.jpg, id=32, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-04.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-04.jpg>
+Package pdftex.def Info: graphics/tfcn-output-04.jpg  used on input line 291.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss05.pdf, id=33, 270.00874pt x 266.9975pt>
+File: graphics/loss05.pdf Graphic file (type pdf)
+<use graphics/loss05.pdf>
+Package pdftex.def Info: graphics/loss05.pdf  used on input line 301.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial05.jpg, id=34, 1003.75pt x 1003.75pt>
+File: graphics/aerial05.jpg Graphic file (type jpg)
+<use graphics/aerial05.jpg>
+Package pdftex.def Info: graphics/aerial05.jpg  used on input line 305.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial05-trav.jpg, id=35, 1003.75pt x 1003.75pt>
+File: graphics/aerial05-trav.jpg Graphic file (type jpg)
+<use graphics/aerial05-trav.jpg>
+Package pdftex.def Info: graphics/aerial05-trav.jpg  used on input line 309.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-05.jpg, id=36, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-05.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-05.jpg>
+Package pdftex.def Info: graphics/tfcn-output-05.jpg  used on input line 313.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss06.pdf, id=37, 270.00874pt x 266.9975pt>
+File: graphics/loss06.pdf Graphic file (type pdf)
+<use graphics/loss06.pdf>
+Package pdftex.def Info: graphics/loss06.pdf  used on input line 323.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial06.jpg, id=38, 1003.75pt x 1003.75pt>
+File: graphics/aerial06.jpg Graphic file (type jpg)
+<use graphics/aerial06.jpg>
+Package pdftex.def Info: graphics/aerial06.jpg  used on input line 327.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial06-trav.jpg, id=39, 1003.75pt x 1003.75pt>
+File: graphics/aerial06-trav.jpg Graphic file (type jpg)
+<use graphics/aerial06-trav.jpg>
+Package pdftex.def Info: graphics/aerial06-trav.jpg  used on input line 331.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-06.jpg, id=40, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-06.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-06.jpg>
+Package pdftex.def Info: graphics/tfcn-output-06.jpg  used on input line 335.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss07.pdf, id=41, 270.00874pt x 266.9975pt>
+File: graphics/loss07.pdf Graphic file (type pdf)
+<use graphics/loss07.pdf>
+Package pdftex.def Info: graphics/loss07.pdf  used on input line 345.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial07.jpg, id=42, 1003.75pt x 1003.75pt>
+File: graphics/aerial07.jpg Graphic file (type jpg)
+<use graphics/aerial07.jpg>
+Package pdftex.def Info: graphics/aerial07.jpg  used on input line 349.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/aerial07-trav.jpg, id=43, 1003.75pt x 1003.75pt>
+File: graphics/aerial07-trav.jpg Graphic file (type jpg)
+<use graphics/aerial07-trav.jpg>
+Package pdftex.def Info: graphics/aerial07-trav.jpg  used on input line 353.
+(pdftex.def)             Requested size: 118.6778pt x 118.66815pt.
+<graphics/tfcn-output-07.jpg, id=44, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-07.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-07.jpg>
+Package pdftex.def Info: graphics/tfcn-output-07.jpg  used on input line 357.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+<graphics/loss08.pdf, id=45, 270.00874pt x 266.9975pt>
+File: graphics/loss08.pdf Graphic file (type pdf)
+<use graphics/loss08.pdf>
+Package pdftex.def Info: graphics/loss08.pdf  used on input line 367.
+(pdftex.def)             Requested size: 118.6778pt x 117.35295pt.
+<graphics/aerial08.jpg, id=46, 722.7pt x 722.7pt>
+File: graphics/aerial08.jpg Graphic file (type jpg)
+<use graphics/aerial08.jpg>
+Package pdftex.def Info: graphics/aerial08.jpg  used on input line 371.
+(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
+<graphics/aerial08-trav.jpg, id=47, 722.7pt x 722.7pt>
+File: graphics/aerial08-trav.jpg Graphic file (type jpg)
+<use graphics/aerial08-trav.jpg>
+Package pdftex.def Info: graphics/aerial08-trav.jpg  used on input line 375.
+(pdftex.def)             Requested size: 118.6778pt x 118.67795pt.
+<graphics/tfcn-output-08.jpg, id=48, 125.46875pt x 125.46875pt>
+File: graphics/tfcn-output-08.jpg Graphic file (type jpg)
+<use graphics/tfcn-output-08.jpg>
+Package pdftex.def Info: graphics/tfcn-output-08.jpg  used on input line 379.
+(pdftex.def)             Requested size: 118.6778pt x 118.68344pt.
+[2 <./graphics/eswa-proposal-flowchart.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/eswa-proposal-flowchart.pdf)
+: PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type 
+<array>); ignored.
+> <./graphics/proposal-flowchart.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/proposal-flowchart.pdf): PDF
+ inclusion: invalid other resource which is no dict (key 'ProcSets', type <arra
+y>); ignored.
+>] [3 <./graphics/TFCN.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/TFCN.pdf): PDF inclusion: in
+valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <./graphics/loss01.pdf> <./graphics/aerial01.jpg> <./graphics/aerial01-trav
+.jpg> <./graphics/tfcn-output-01.jpg> <./graphics/loss02.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss02.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./graphics/aerial02.jpg> <./graphics/aerial02-trav.jpg> <./graphics/tfcn-out
+put-02.jpg> <./graphics/loss03.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss03.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./graphics/aerial03.jpg> <./graphics/aerial03-trav.jpg> <./graphics/tfcn-out
+put-03.jpg>]
+Overfull \hbox (271.53043pt too wide) in paragraph at lines 465--472
+  [] 
+ []
+
+
+Underfull \vbox (badness 4024) has occurred while \output is active []
+
+ [5 <./graphics/loss04.pdf> <./graphics/aerial04.jpg> <./graphics/aerial04-trav
+.jpg> <./graphics/tfcn-output-04.jpg> <./graphics/loss05.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss05.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./graphics/aerial05.jpg> <./graphics/aerial05-trav.jpg> <./graphics/tfcn-out
+put-05.jpg> <./graphics/loss06.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss06.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./graphics/aerial06.jpg> <./graphics/aerial06-trav.jpg> <./graphics/tfcn-out
+put-06.jpg>] (./article.bbl)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[6 <./graphics/loss07.pdf> <./graphics/aerial07.jpg> <./graphics/aerial07-trav.
+jpg> <./graphics/tfcn-output-07.jpg> <./graphics/loss08.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./graphics/loss08.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./graphics/aerial08.jpg> <./graphics/aerial08-trav.jpg> <./graphics/tfcn-out
+put-08.jpg>] (./article.aux) ) 
+Here is how much of TeX's memory you used:
+ 6252 strings out of 492982
+ 95124 string characters out of 6134896
+ 177698 words of memory out of 5000000
+ 9675 multiletter control sequences out of 15000+600000
+ 42851 words of font info for 87 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,15n,49p,344b,721s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
+se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on article.pdf (6 pages, 8983840 bytes).
+PDF statistics:
+ 438 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+

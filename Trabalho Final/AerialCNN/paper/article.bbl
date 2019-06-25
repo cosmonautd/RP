@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}
+
+\bibitem{seraji:1999}
+H.~Seraji, ``Traversability index: a new concept for planetary rovers,'' {\em
+  Proceedings 1999 IEEE International Conference on Robotics and Automation
+  (Cat. No.99CH36288C)}, vol.~3, pp.~2006--2013 vol.3, 1999.
+
+\bibitem{howard:2001}
+A.~Howard, E.~Tunstel, D.~Edwards, and A.~Carlson, ``Enhancing fuzzy robot
+  navigation systems by mimicking human visual perception of natural terrain
+  traversability,'' {\em Proceedings Joint 9th IFSA World Congress and 20th
+  NAFIPS International Conference}, vol.~1, pp.~7--12 vol.1, July 2001.
+
+\bibitem{howard:2003}
+A.~Howard, H.~Seraji, and B.~Werger, ``A terrain-based path planning method for
+  mobile robots,'' {\em Seventh International Conference on Automation
+  Technology, NASA Jet Propulsion Laboratory (2003)}, 2003.
+
+\bibitem{castejon:2005}
+C.~Castej{\'o}n, B.~L. Boada, D.~Blanco, and L.~Moreno, ``Traversable region
+  modeling for outdoor navigation,'' {\em Journal of Intelligent and Robotic
+  Systems}, vol.~43, pp.~175--216, Aug 2005.
+
+\bibitem{guo:2008}
+Y.~Guo, A.~Song, Y.~Cao, and H.~Tang, ``Research on navigation for search and
+  rescue robot based on traversability,'' in {\em Intelligent Robotics and
+  Applications} (C.~Xiong, Y.~Huang, Y.~Xiong, and H.~Liu, eds.), (Berlin,
+  Heidelberg), pp.~853--862, Springer Berlin Heidelberg, 2008.
+
+\bibitem{shneier:2008}
+M.~Shneier, T.~Chang, T.~Hong, W.~Shackleford, R.~Bostelman, and J.~S. Albus,
+  ``Learning traversability models for autonomous mobile vehicles,'' {\em
+  Autonomous Robots}, vol.~24, pp.~69--86, Jan 2008.
+
+\bibitem{vandapel:2006}
+N.~Vandapel, R.~R. Donamukkala, and M.~Hebert, ``Unmanned ground vehicle
+  navigation using aerial ladar data,'' {\em The International Journal of
+  Robotics Research}, vol.~25, pp.~31--51, January 2006.
+
+\bibitem{hudjakov:2011}
+R.~Hudjakov and M.~Tamre, ``Ortophoto analysis for ugv long-range autonomous
+  navigation,'' {\em Estonian Journal of Engineering}, vol.~17, pp.~17--27, 01
+  2011.
+
+\bibitem{hudjakov:2013}
+R.~Hudjakov and M.~Tamre, ``Orthophoto classification for {UGV} path planning
+  using heterogeneous computing,'' {\em International Journal of Advanced
+  Robotic Systems}, vol.~10, p.~268, jan 2013.
+
+\bibitem{delmerico:2017}
+J.~Delmerico, E.~Mueggler, J.~Nitsh, and D.~Scaramuzza, ``Active autonomous
+  aerial exploration for ground robot path planning,'' {\em IEEE Robotics and
+  Automation Letters}, vol.~2, pp.~664--671, Abril 2017.
+
+\bibitem{borges:2019}
+C.~D.~B. Borges, A.~M.~A. Almeida, I.~C. de~Paula~Junior, and J.~J. de~Mesquisa
+  Sa~Junior, ``A strategy and evaluation method for ground global path planning
+  based on aerial images,'' {\em Expert Systems With Applications}, vol.~XX,
+  pp.~XXX--XXX, 2019.
+
+\bibitem{ioffe:2015}
+S.~Ioffe and C.~Szegedy, ``Batch normalization: Accelerating deep network
+  training by reducing internal covariate shift,'' in {\em Proceedings of the
+  32nd International Conference on Machine Learning} (F.~Bach and D.~Blei,
+  eds.), vol.~37 of {\em Proceedings of Machine Learning Research}, (Lille,
+  France), pp.~448--456, PMLR, 07--09 Jul 2015.
+
+\bibitem{srivastava:2014}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
+  ``Dropout: A simple way to prevent neural networks from overfitting,'' {\em
+  Journal of Machine Learning Research}, vol.~15, pp.~1929--1958, 2014.
+
+\bibitem{ng:2004}
+A.~Y. Ng, ``Feature selection, l1 vs. l2 regularization, and rotational
+  invariance,'' in {\em Proceedings of the Twenty-first International
+  Conference on Machine Learning}, ICML '04, (NYC, USA), pp.~78--, ACM, 2004.
+
+\bibitem{kingma:2015}
+D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' in {\em
+  Proceedings of the 3rd International Conference on Learning Representations
+  (ICLR 2015)}, 2015.
+
+\bibitem{prechelt:2012}
+L.~Prechelt, {\em Early Stopping --- But When? Neural Networks: Tricks of the
+  Trade: Second Edition}, pp.~53--67.
+\newblock Berlin, Heidelberg: Springer Berlin Heidelberg, 2012.
+
+\end{thebibliography}
