@@ -63,9 +63,9 @@ The concept was extended and applied in robot planning tasks.
 Researchers used a wide range of sensing devices and methods to estimate traversability maps from the ground \cite{howard:2001,howard:2003,castejon:2005,guo:2008,shneier:2008}.
 
 With the rise in popularity of low cost multirotor drones and the increased availability of high resolution satellite images, a new idea to assist in robot navigation surfaced: the use of aerial images to add long range planning capabilities to ground robots.
-This was explored, for example, by \cite{vandapel:2006,hudjakov:2011,hudjakov:2013,delmerico:2017,borges:2019} and others.
-In these works, some of the proposed methods to generate traversability maps require depth data \cite{vandapel:2006,delmerico:2017}, while others need only RGB images \cite{hudjakov:2011,hudjakov:2013,borges:2019}.
-The core traversability computation approach also varied between heuristics \cite{vandapel:2006,borges:2019} and classification combined with heuristics \cite{hudjakov:2011,hudjakov:2013,delmerico:2017}.
+This was explored, for example, by \cite{vandapel:2006,hudjakov:2013,delmerico:2017,chavez-garcia:2017,borges:2019} and others.
+In these works, some of the proposed methods to generate traversability maps require depth data \cite{vandapel:2006,chavez-garcia:2017}, while others need only RGB images \cite{hudjakov:2013,delmerico:2017,borges:2019}.
+The core traversability computation approach also varied between heuristics \cite{vandapel:2006,borges:2019} and classification combined with heuristics \cite{hudjakov:2013,delmerico:2017}.
 
 However, classification is computationally expensive if executed over all sub-regions of an image.
 On the other hand, using only handcrafted heuristics disregards the possible advantage of learning hidden structures in image data.

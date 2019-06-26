@@ -37,11 +37,6 @@ N.~Vandapel, R.~R. Donamukkala, and M.~Hebert, ``Unmanned ground vehicle
   navigation using aerial ladar data,'' {\em The International Journal of
   Robotics Research}, vol.~25, pp.~31--51, January 2006.
 
-\bibitem{hudjakov:2011}
-R.~Hudjakov and M.~Tamre, ``Ortophoto analysis for ugv long-range autonomous
-  navigation,'' {\em Estonian Journal of Engineering}, vol.~17, pp.~17--27, 01
-  2011.
-
 \bibitem{hudjakov:2013}
 R.~Hudjakov and M.~Tamre, ``Orthophoto classification for {UGV} path planning
   using heterogeneous computing,'' {\em International Journal of Advanced
@@ -52,11 +47,15 @@ J.~Delmerico, E.~Mueggler, J.~Nitsh, and D.~Scaramuzza, ``Active autonomous
   aerial exploration for ground robot path planning,'' {\em IEEE Robotics and
   Automation Letters}, vol.~2, pp.~664--671, Abril 2017.
 
+\bibitem{chavez-garcia:2017}
+R.~O. {Chavez-Garcia}, J.~{Guzzi}, L.~M. {Gambardella}, and A.~{Giusti},
+  ``Learning ground traversability from simulations,'' {\em IEEE Robotics and
+  Automation Letters}, vol.~3, pp.~1695--1702, July 2018.
+
 \bibitem{borges:2019}
 C.~D.~B. Borges, A.~M.~A. Almeida, I.~C. de~Paula~Junior, and J.~J. de~Mesquisa
   Sa~Junior, ``A strategy and evaluation method for ground global path planning
-  based on aerial images,'' {\em Expert Systems With Applications}, vol.~XX,
-  pp.~XXX--XXX, 2019.
+  based on aerial images,'' {\em In Review}, 2019.
 
 \bibitem{ioffe:2015}
 S.~Ioffe and C.~Szegedy, ``Batch normalization: Accelerating deep network
